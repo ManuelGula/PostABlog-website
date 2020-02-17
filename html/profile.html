@@ -3,14 +3,92 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
-
+        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+            <div class="container-fluid" >
+                <ul >
+                    <div class="navbar-header" style="display: inline;">
+                      <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
+                    </div>
+                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
+                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
+                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <button id="Search" type="submit" name="search">Search</button>
+                    <li style="display: inline;"><a href="landing-page.html">logout</a></li>
+                </ul>
+            <div/>
+        </nav>
     </header>
-    <body>
-        
+    <body style="background-color: rgb(167, 165, 165);">
+        <div id="info" style="margin: 2% 10% 6% 15%;">
+            <img  src="../images/welcome_image.jpg" alt="" class="rounded-circle" style="height: 10em; float: left; padding:1em;">
+            <p id="name" style="font-size: 3em;">Emmanuel Werimegbe</p>
+            <div id="sub_info" style="margin-top:-1em; font-size: 1.5em;">
+                    <label for="email">Email:</label>
+                    <p id="email" style="display: inline;">manny@mail.com</p>
+            </div>
+        </div>
+        <div id="bio_content" style="width: 60%;margin: 0 10% 5% 15%;" >
+            <label style="font-size: 1.5em; margin-left: 40%;">Biography</label>
+            <p id="bio">
+                The MyBlogPost website will allow registered users to create their own blog and unregistered users to view blog postings. Our goal is to produce a similar type of service that allows users to login using their username and password or register by providing their name, email address and image. Registered users will be able to post blogs and make
+            </p>
+        </div>
+        <h1 style="text-align: center;">My Blogs</h1>
+        <div class="media border p-3" style="width: 90%; margin-left: 5%;">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+              <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+              <p>Lorem ipsum...</p>
+            </div>
+          </div>
+          <div class="media border p-3" style="width: 90%; margin-left: 5%;">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+              <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+              <p>Lorem ipsum...</p>
+            </div>
+          </div>
+          <div class="media border p-3" style="width: 90%; margin-left: 5%;">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+              <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+              <p>Lorem ipsum...</p>
+            </div>
+          </div>
+          <div class="media border p-3" style="width: 90%; margin-left: 5%;">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+              <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+              <p>Lorem ipsum...</p>
+            </div>
+          </div>
+          <div class="media border p-3" style="width: 90%; margin-left: 5%;">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+              <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+              <p>Lorem ipsum...</p>
+            </div>
+          </div>
     </body>
-    <footer>
-
+    <footer style="position: absolute; top: auto; width:100% ;background-color: bisque;margin-top: 2%; margin-bottom: 0;height: 4em;" >
+        <p style="display: inline;">
+            <ul style="float: right; margin-right: 1em;">
+                <div class="navbar-header" style="display: inline;">
+                </div>
+                <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
+                <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
+                <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
+                <li style="display: inline;"><a href="adminlogin.html">Admin login</a></li>
+            </ul>
+            &copy; COSC 360 Project 
+        </p>
     </footer>
 </html>

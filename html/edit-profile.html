@@ -3,14 +3,81 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
-
+        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+            <div class="container-fluid" >
+                <ul >
+                    <div class="navbar-header" style="display: inline;">
+                      <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
+                    </div>
+                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
+                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
+                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <button id="Search" type="submit" name="search">Search</button>
+                    <li style="display: inline;"><a href="landing-page.html">Logout</a></li>
+                </ul>
+            <div/>
+        </nav>
     </header>
-    <body>
-        
-    </body>
-    <footer>
+    <body style="background-color: rgb(167, 165, 165);">
+        <h1 style="text-align: center;">Edit Profile</h1>
+        <div >
+            <form method="" action="" style="margin-left: 30%;">
+                <fieldset  style="width: 80%;height: 50px;">
+                        <div>
+                            <p>
+                                <label>Firstname:</label>
+                                <br/>
+                                <input id="firstname" style="width:30em ;text-align: center;" type="text" name="name" placeholder="Enter your firstname">
+                            </p>
+                            <p>
+                                <label>Lastname:</label>
+                                <br/>
+                                <input id="lastname" style="width:30em ;text-align: center;" type="text" name="name" placeholder="Enter your lastname">
+                            </p>
+                        </div>
+                        <p>
+                            <label>Username:</label>
+                            <br/>
+                            <input id="username" style="width:30em ;text-align: center;" type="text" name="username" placeholder="Enter your username">
+                        </p>
+                        <p>
+                            <label>Email:</label>
+                            <br/>
+                            <input id="email" style="width:30em ;text-align: center;" type="email" name="email" placeholder="Enter your email">
+                        </p>
+                        <div>
+                            <p> 
+                                <label>Bio:</label>
+                                <br/>
+                                <textarea id="bio" rows="5" style="width: 60%;" placeholder="Tell us something about yourself"></textarea>
+                            </p>
+                        </div>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
 
+                </fieldset>
+            </form>
+        </div>
+    </body>
+    <footer style="position: absolute; top: 92%; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
+        <p style="display: inline;">
+            <ul style="float: right; margin-right: 1em;">
+                <div class="navbar-header" style="display: inline;">
+                </div>
+                <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
+                <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
+                <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
+                <li style="display: inline;"><a href="adminlogin.html">Admin login</a></li>
+            </ul>
+            &copy; COSC 360 Project 
+        </p>
     </footer>
 </html>

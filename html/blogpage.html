@@ -3,14 +3,95 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
+        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+            <div class="container-fluid" >
+                <ul >
+                    <div class="navbar-header" style="display: inline;">
+                      <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
+                    </div>
+                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
+                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
+                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <button id="Search" type="submit" name="search">Search</button>
+                    <li style="display: inline;"><a href="landing-page.html">Logout</a></li>
+                </ul>
+            <div/>
+        </nav>
 
     </header>
-    <body>
+    <body style="background-color: rgb(167, 165, 165);">
         
-    </body>
-    <footer>
+        <div id="blog-container" style="margin:2% 5% 10% 5%">
+            <h1 style="margin-left:40%;">Random text</h1>
+            <img id="blog-image" src="../images/welcome_image.jpg" alt="" style="float: left; height:200px ;margin-right:1%;">
 
-    </footer>
+            <p id="content" style="display: inline; flex-wrap: wrap;font-size: 20px;">
+            Performed suspicion in certainty so frankness by attention pretended. Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. Joy house worse arise total boy but. Elderly up chicken do at feeling is. Like seen drew no make fond at on rent. Behaviour extremely her explained situation yet september gentleman are who. Is thought or pointed hearing he. 
+    
+    Extremity direction existence as dashwoods do up. Securing marianne led welcomed offended but offering six raptures. Conveying concluded newspaper rapturous oh at. Two indeed suffer saw beyond far former mrs remain. Occasional continuing possession we insensible an sentiments as is. Law but reasonably motionless principles she. Has six worse downs far blush rooms above stood. 
+    
+    Spot of come to ever hand as lady meet on. Delicate contempt received two yet advanced. Gentleman as belonging he commanded believing dejection in by. On no am winding chicken so behaved. Its preserved sex enjoyment new way behaviour. Him yet devonshire celebrated especially. Unfeeling one provision are smallness resembled repulsive. 
+    
+    Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty for remove plenty regard you summer though. He preference connection astonished on of ye. Partiality on or continuing in particular principles as. Do believing oh disposing to supported allowance we. 
+    
+    Case read they must it of cold that. Speaking trifling an to unpacked moderate debating learning. An particular contrasted he excellence favourable on. Nay preference dispatched difficulty continuing joy one. Songs it be if ought hoped of. Too carriage attended him entrance desirous the saw. Twenty sister hearts garden limits put gay has. We hill lady will both sang room by. Desirous men exercise overcame procured speaking her followed. 
+                
+            </p>
+            <div style="float:right; margin-top: 5%; margin-right: 5%;">
+                <label for="author">By</label>
+                <p id="author" style="font-style: italic;display: inline;"><a href="#">Emmanuel Werimegbe</a></p>
+                <p id="date_created" >
+                    <time datetime="17-02-2020"> February 17,2020.</time>
+                </p>
+            </div>
+        </div>
+        <section id="comments-container" style="margin:2% 5% 2% 5%; ">
+            <h3 >Comments</h3>
+            <div class="comments" style="border-top: solid thin;" >
+                <p>
+                    By <a href="#">Emmanuel Werimegbe</a> on <time datetime="17-02-2020"> February 17,2020.</time>
+                </p>
+                <p>
+                    Life changing.
+                </p>
+            </div>
+            <div class="comments" style="border-style: thin; border-top:dotted; border-width: thin; padding-top: 2%;">
+                <p>
+                    By <a href="#">Davido</a> on <time datetime="17-02-2020"> February 17,2020.</time>
+                </p>
+                <p>
+                    Life changing, couldnt have said it any better.
+                </p>
+            </div>
+        </section>
+        <form id="makeacomment-container" style="margin:2% 5% 2% 5% ; border-top: solid thin;" method="" action="">
+            <fieldset>
+                <h3>Leave a comment</h3>
+                <textarea name="make_a_comment" id="make_a_comment"  rows="2" placeholder="Say something about this blog" style="width: 40%; height: 5em;"></textarea>
+                <br/>
+                <button id= "submit-comment" type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </body>
+        <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-top: 5%; margin-bottom: 0;height: 4em;" >
+            <p style="display: inline;">
+                <ul style="float: right; margin-right: 1em;">
+                    <div class="navbar-header" style="display: inline;">
+                    </div>
+                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
+                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
+                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
+                    <li style="display: inline;"><a href="adminlogin.html">Admin login</a></li>
+                </ul>
+                &copy; COSC 360 Project 
+            </p>
+        </footer>
 </html>
