@@ -29,9 +29,10 @@ a:active{
     text-decoration: none;
 }
 fieldset{
-  
     text-align: center;
     background-color: #00a287;
+    width: 80%;
+    
 }
 h1{
     text-align: center;
@@ -58,5 +59,7 @@ footer ul{
 footer li{
     display: inline;
 }
-
+form{
+    margin-left: 15%;
+}
 
