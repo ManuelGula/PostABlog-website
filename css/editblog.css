@@ -1,0 +1,80 @@
+.navbar  {
+    background-color: #00a287 ;
+    display: inline;
+}
+.navbar-header{
+    display: inline;
+    font-weight: bold; 
+}
+nav div li{
+    display: inline;
+}
+nav div input[type=search]{
+    width:30em ; 
+    text-align: center;
+}
+a:link {
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+a:visited{
+    font-weight: bold;
+    color: #5ed08d;
+    text-decoration: none;
+}
+a:active{
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+}
+form{
+    margin-left: 30%;
+}
+fieldset{
+    width: 80%;
+    height: 50px;
+}
+fieldset p input[type=text]
+{
+    width:90%;
+    
+}
+fieldset p input[id=description]
+{
+    width:90%;
+    height: 5em;
+}
+fieldset p textarea{
+    width: 90%;
+    height: 30em;
+}
+footer{
+    position: absolute; 
+    top: 92%;
+    width:100% ;
+    background-color: #00a287; 
+    margin-bottom: 0;
+    height: 4em;
+}
+footer.navbar-header {
+    display: inline;
+}
+
+footer p {
+display: inline;
+ }
+footer ul{
+    float: right; 
+    margin-right: 1em;
+}
+footer li{
+    display: inline;
+}
+nav div input[type=search]{
+    width:30em ; 
+    text-align: center;
+}
