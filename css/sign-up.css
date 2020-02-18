@@ -28,13 +28,24 @@ a:active{
     color: bisque;
     text-decoration: none;
 }
-fieldset{
-  
-    text-align: center;
-    background-color: #00a287;
-}
 h1{
     text-align: center;
+}
+form{
+    margin-left: 30%;
+}
+fieldset{
+    width: 80%;
+    height: 50px;
+}
+fieldset p input[type=text]
+[type=email]
+[type=password]{
+    width:30em ;
+    text-align: center;
+}
+fieldset p textarea{
+    width: 60%;
 }
 footer{
     position: absolute; 
@@ -58,5 +69,3 @@ footer ul{
 footer li{
     display: inline;
 }
-
-
