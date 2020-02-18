@@ -29,11 +29,11 @@
             </div>
         </nav>
     </header>
-    <body>
-        <h1>Create a blog</h1>
+    <body style="background-color: rgb(167, 165, 165); ">
+        <h1 style="text-align: center;">Create a blog</h1>
         <div>
-            <form method="" action="">
-                <fieldset >
+            <form method="" action="" style="margin-left: 25%;margin-bottom: 2%;">
+                <fieldset style="width: 70%;">
                         <p>
                             <label>Title:</label>
                             <br/>
@@ -42,17 +42,22 @@
                         <p>
                             <label>Description:</label>
                             <br/>
-                            <input id="text" type="text" name="desc" placeholder="Enter your description">
+                            <textarea id="text" rows="3" style="width:90%;  height: 5em;" name="desc" placeholder="Enter your description"></textarea>
                         </p>
                         <p>
                             <label>Content:</label>
                             <br/>
-                            <input id="text" type="text" name="content" placeholder="Enter your content for your blog">
+                            <textarea id="text" rows="10" style="width:90%; height:10em;" name="content" placeholder="Enter your content for your blog"></textarea>
                         </p>
                         <p>
                             <label>Upload an image</label>
                             <br/>
-                            <input type="file">
+                            <input id="blog-img" type="file">
+                        </p>
+                        <p>
+                            <label>Date</label>
+                            <br/>
+                            <input id="date_uploaded" type="date">
                         </p>
                     <button type="submit">Post your blog</button>
                     <button type="reset">Reset</button>
@@ -62,10 +67,10 @@
         </div>
         
     </body>
-    <footer >
-        <p>
-            <ul>
-                <div class="navbar-header">
+    <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
+        <p style="display: inline;">
+            <ul style="float: right; margin-right: 1em;">
+                <div class="navbar-header" style="display: inline;">
                 </div>
                 <li><a href="blogsfeed.html">Blogs</a></li>|
                 <li><a href="savedposts.html">My Saved Blogs</a></li>|
