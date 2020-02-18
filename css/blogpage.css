@@ -12,6 +12,7 @@ nav div li{
 nav div input[type=search]{
     width:30em ; 
     text-align: center;
+    
 }
 a:link {
     font-weight: bold;
@@ -29,14 +30,49 @@ a:active{
     text-decoration: none;
 }
 h1{
-    text-align: center;
+    margin-left:40%;
 }
 body div{
-    width: 60%;
-    margin-left: 15%;
+    margin:2% 5% 10% 5%;
 }
 body div img{
-    width: 60px;
+    float: left; 
+    height:200px ;
+    margin-right:1%;
+}
+body div p{
+    display: inline; 
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+body div div{
+    float:right;
+    margin-top: 5%; 
+    margin-right: 5%;
+}
+p[id=author]{
+    font-style: italic;
+    display: inline;
+}
+section[id="comments-container"]{
+    margin:2% 5% 2% 5%;
+}
+p [class="comments_section"]{
+    font-size: 1.5em;
+}
+div [class=comments]{
+    border-top: solid thin;
+}
+form{
+    margin:2% 5% 2% 5% ;
+    border-top: solid thin;
+}
+fieldset p{
+    font-size: 1.5em;
+}
+fieldset textarea{
+    width: 40%; 
+    height: 5em;
 }
 footer{
     position: absolute; 
@@ -59,31 +95,4 @@ footer ul{
 }
 footer li{
     display: inline;
-}
-button[id=save_btn]{
-    position: relative;
-    top: 5em; 
-    left: 55em;  
-    margin-left: 0em; 
-    color: black; 
-    width: 10%;
-}
-a[id=bloglink]{
-    text-decoration: none;
-}
-body div div[class=mysavedblogs]{
-    width: inherit;
-    border: solid thin black;
-}
-label[class=title]{
-    margin-left: 2%;
-    font-weight: bold;
-}
-p[id=description]{
-    padding:1% 2% 0 2%;
-}
-p[class="author&date"]{
-    text-align: right;
-    font-size: 1em;
-    padding-right: 3%;
 }
