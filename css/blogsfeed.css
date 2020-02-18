@@ -32,8 +32,8 @@ h1{
     text-align: center;
 }
 body div{
-    width: 90%;
-    margin-left: 5%;
+    width: 60%;
+    margin-left: 15%;
 }
 body div img{
     width: 60px;
@@ -59,4 +59,31 @@ footer ul{
 }
 footer li{
     display: inline;
+}
+button[id=save_btn]{
+    position: relative;
+    top: 5em; 
+    left: 55em;  
+    margin-left: 0em; 
+    color: black; 
+    width: 10%;
+}
+a[id=bloglink]{
+    text-decoration: none;
+}
+body div div[class=mysavedblogs]{
+    width: inherit;
+    border: solid thin black;
+}
+label[class=title]{
+    margin-left: 2%;
+    font-weight: bold;
+}
+p[id=description]{
+    padding:1% 2% 0 2%
+}
+p[class="author&date"]{
+    text-align: right;
+    font-size: 1em;
+    padding-right: 3%;
 }
