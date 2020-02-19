@@ -30,7 +30,7 @@
     <body style="background-color: rgb(167, 165, 165);">
         <h1 style="text-align: center;">Sign In</h1>
         <div>
-            <form method="" action="">
+            <form name="signin" method="" action="" onsubmit="return validateform()">
                 <fieldset style="width: 70%;margin-left: 30%;" >
                         <p>
                             <label>Username:</label>
@@ -51,7 +51,24 @@
                 </fieldset>
             </form>
         </div>
-        
+        <script>
+            function validateform(){
+                var username=document.forms["signin"]["username"].value;
+                var password=document.forms["signin"]["password"].value;
+                if(username=="" && password=="" ){
+                    alert("enter username and password");
+                    return false;
+                }
+                else if(username==""){
+                    alert("enter username to sign in");
+                    return false;
+                }
+                else if(password==""){
+                    alert("enter password");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer style="position: absolute; top: 92%;width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
         <p style="display: inline;">

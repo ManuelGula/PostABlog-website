@@ -30,7 +30,7 @@
     <body style="background-color: rgb(167, 165, 165);">
         <h1 style="text-align: center;">Sign Up</h1>
         <div >
-            <form method="" action="" style="margin-left: 30%;">
+            <form name="signup" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
                 <fieldset  style="width: 80%;height: 50px;">
                         <div>
                             <p>
@@ -73,13 +73,56 @@
                                 <textarea id="bio" rows="3" style="width: 60%;" placeholder="Tell us something about yourself"></textarea>
                             </p>
                         </div>
+                        <p>
+                            <label>Add profile image</label>
+                            <br/>
+                            <input id="prof_image" name="prof_image" type="file" accept="image/*">
+                        </p>
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
             </form>
         </div>
-        
+        <script>
+            function validateform(){
+                var fname=document.forms["signup"]["fname"].value;
+                var lname=document.forms["signup"]["lname"].value;
+                var username=document.forms["signup"]["username"].value;
+                var email=document.forms["signup"]["email"].value;
+                var bio=document.getElementById("bio").value;
+                var image=document.forms["signup"]["prof_image"].value;
+
+                if (fname=="" || lname=="" || username=="" || email=="" ){
+                    alert("all fields must be filled")
+                    return false;
+                }
+                else if(fname==""){
+                    alert("You must enter a first name!");
+                    return false;
+                }
+                else if(lname==""){
+                    alert("You must enter a  last name!");
+                    return false;
+                }
+                else if(username==""){
+                    alert("You must enter your username");
+                    return false;
+                }
+                else if(email==""){
+                    alert("You must enter an email");
+                    return false;
+                }
+                else if(bio==""){
+                    alert("You must enter an bio");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer style="position: absolute; top:100%; width:100% ;background-color: bisque; margin-top: 5%;margin-bottom: 0;height: 4em;" >
         <p style="display: inline;">

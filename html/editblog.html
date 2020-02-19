@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Edit blog</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -29,17 +29,17 @@
     <body style="background-color: rgb(167, 165, 165);">
         <div>
             <h1 style="text-align: center;">Edit blog</h1>
-            <form method="" action="" style="margin-left: 30%;">
+            <form name="editblog" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
                 <fieldset style="width: 70%;">
                         <p>
                             <label>Title:</label>
                             <br/>
-                            <input id="title" style="width:90% ;" type="text" name="desc" placeholder="Enter your title">
+                            <input id="title" style="width:90% ;" type="text" name="title" placeholder="Enter your title">
                         </p>
                         <p>
                             <label>Description:</label>
                             <br/>
-                            <input id="description" style="width:90%; height: 5em;" type="text" name="desc" placeholder="Enter your description">
+                            <textarea id="description" style="width:90%; height: 5em;" type="text" name="desc" placeholder="Enter your description"></textarea>
                         </p>
                         <p>
                             <label>Content:</label>
@@ -49,14 +49,30 @@
                         <p>
                             <label>Upload an image</label>
                             <br/>
-                            <input type="file">
+                            <input id="blog_image" name="blog_image" type="file" accept="image/*">
                         </p>
-                    <button type="submit">Post your blog</button>
+                    <button type="submit">Edit your blog</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
             </form>
         </div>
+        <script>
+            function validateform(){
+                var title=document.forms["editblog"]["title"].value;
+                var description=document.getElementById("description").value;
+                var content=document.getElementById("content").value;
+                var image=document.forms["editblog"]["blog_image"].value;
+                if(title=="" || description=="" || content=="" ){
+                    alert("All fields must be filled to confirm edit");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-top: 2%; margin-bottom: 0;height: 4em;" >
         <p style="display: inline;">

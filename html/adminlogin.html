@@ -31,17 +31,17 @@
     <body style="background-color: rgb(167, 165, 165);">
         <h1 style="text-align: center;">Admin Sign In</h1>
         <div>
-            <form method="" action="" style="margin-left: 40%;">
+            <form name=adminlogin method="" action="" style="margin-left: 40%;" onsubmit="return validateform()">
                 <fieldset style="width: 70%;" >
                         <p>
                             <label>Username:</label>
                             <br/>
-                            <input id="username" style="width:45% ;text-align: center;" type="text" name="username" placeholder="Enter your username">
+                            <input id="username" style="width:60% ;text-align: center;" type="text" name="username" placeholder="Enter your username">
                         </p>
                         <p>
                             <label>Password:</label>
                             <br/>
-                            <input id="password" style="width:45% ;text-align: center;" type="password" name="password" placeholder="Enter your password">
+                            <input id="password" style="width:60% ;text-align: center;" type="password" name="password" placeholder="Enter your password">
                         </p>
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
@@ -49,6 +49,24 @@
                 </fieldset>
             </form>
         </div>
+        <script>
+            function validateform(){
+                var username=document.forms["adminlogin"]["username"].value;
+                var password=document.forms["adminlogin"]["password"].value;
+                if(username=="" && password=="" ){
+                    alert("enter username and password");
+                    return false;
+                }
+                else if(username!=="admin"){
+                    alert("You must be an admin to sign in");
+                    return false;
+                }
+                else if(password!=="admin"){
+                    alert("enter password");
+                    return false;
+                }
+            }
+        </script>
         
     </body>
     <footer style="position: absolute; top: 92%; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
