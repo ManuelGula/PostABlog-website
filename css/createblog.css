@@ -43,7 +43,7 @@ fieldset p input[type=text]
     width:90%;
     
 }
-fieldset p input[id=description]
+#iddescription
 {
     width:90%;
     height: 5em;

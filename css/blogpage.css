@@ -50,17 +50,17 @@ body div div{
     margin-top: 5%; 
     margin-right: 5%;
 }
-p[id=author]{
+#idauthor{
     font-style: italic;
     display: inline;
 }
-section[id="comments-container"]{
+#idcomments-container{
     margin:2% 5% 2% 5%;
 }
-p [class="comments_section"]{
+.comments_section{
     font-size: 1.5em;
 }
-div [class=comments]{
+.comments{
     border-top: solid thin;
 }
 form{
