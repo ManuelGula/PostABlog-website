@@ -36,7 +36,7 @@
                         <p>
                             <label>Title:</label>
                             <br/>
-                            <input id="text" style="width:90% ;" type="text" name="desc" placeholder="Enter your blog's title">
+                            <input id="text" style="width:90% ;" type="text" name="title" placeholder="Enter your blog's title">
                         </p>
                         <p>
                             <label>Description:</label>
@@ -51,7 +51,7 @@
                         <p>
                             <label>Upload an image</label>
                             <br/>
-                            <input id="blog-img" type="file">
+                            <input id="blog_image" name="blog_image" type="file" accept="image/*">
                         </p>
                         <p>
                             <label>Date</label>
@@ -64,7 +64,22 @@
                 </fieldset>
             </form>
         </div>
-        
+        <script>
+            function validateform(){
+                var title=document.forms["editblog"]["title"].value;
+                var description=document.getElementById("description").value;
+                var content=document.getElementById("content").value;
+                var image=document.forms["editblog"]["blog_image"].value;
+                if(title=="" || description=="" || content=="" ){
+                    alert("All fields must be filled to confirm create a blog");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
         <p style="display: inline;">

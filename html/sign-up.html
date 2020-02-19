@@ -30,7 +30,7 @@
     <body style="background-color: rgb(167, 165, 165);">
         <h1 style="text-align: center;">Sign Up</h1>
         <div >
-            <form method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
+            <form name="signup" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
                 <fieldset  style="width: 80%;height: 50px;">
                         <div>
                             <p>
@@ -86,21 +86,22 @@
         </div>
         <script>
             function validateform(){
-                var fname=document.forms["editprofile"]["fname"].value;
-                var lname=document.forms["editprofile"]["lname"].value;
-                var username=document.forms["editprofile"]["username"].value;
-                var email=document.forms["editprofile"]["email"].value;
+                var fname=document.forms["signup"]["fname"].value;
+                var lname=document.forms["signup"]["lname"].value;
+                var username=document.forms["signup"]["username"].value;
+                var email=document.forms["signup"]["email"].value;
                 var bio=document.getElementById("bio").value;
-                var image=document.forms["editblog"]["prof_image"].value;
-                if (fname=="" || lname=="" || username=="" || email=="" || image==""){
+                var image=document.forms["signup"]["prof_image"].value;
+
+                if (fname=="" || lname=="" || username=="" || email=="" ){
                     alert("all fields must be filled")
                     return false;
                 }
-                else if(fname=="" ){
+                else if(fname==""){
                     alert("You must enter a first name!");
                     return false;
                 }
-                else if(lname=="" ){
+                else if(lname==""){
                     alert("You must enter a  last name!");
                     return false;
                 }

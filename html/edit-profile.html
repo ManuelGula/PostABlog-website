@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Edit Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -77,7 +77,7 @@
                 var email=document.forms["editprofile"]["email"].value;
                 var bio=document.getElementById("bio").value;
                 var image=document.forms["editblog"]["prof_image"].value;
-                if (fname=="" || lname=="" || username=="" || email=="" || image==""){
+                if (fname=="" || lname=="" || username=="" || email==""){
                     alert("all fields must be filled")
                     return false;
                 }
