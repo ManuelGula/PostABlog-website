@@ -50,7 +50,7 @@ footer ul{
 footer li{
     display: inline;
 }
-button[id=remove_btn]{
+id#remove_btn{
     position: relative;
     top: 5em; 
     left: 55em;  
@@ -58,18 +58,18 @@ button[id=remove_btn]{
     color: black; 
     width: 10%;
 }
-a[id=bloglink]{
+#idbloglink{
     text-decoration: none;
 }
 body div div[class=mysavedblogs]{
     width: inherit;
     border: solid thin black;
 }
-label[class=title]{
+.title{
     margin-left: 2%;
     font-weight: bold;
 }
-p[id=description]{
+#iddescription{
     padding:1% 2% 0 2%;
 }
 p[class="author&date"]{
