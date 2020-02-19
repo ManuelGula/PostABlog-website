@@ -9,9 +9,13 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
+    
+}
+nav div input{
+    display: inline;
 }
 a:link {
     font-weight: bold;
@@ -46,7 +50,7 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
+footer .navbar-header {
     display: inline;
 }
 
@@ -60,7 +64,7 @@ footer ul{
 footer li{
     display: inline;
 }
-#idsave_btn{
+#save_btn{
     position: relative;
     top: 5em; 
     left: 55em;  
@@ -68,7 +72,7 @@ footer li{
     color: black; 
     width: 10%;
 }
-#idbloglink{
+#bloglink{
     text-decoration: none;
 }
 .mysavedblogs{
@@ -79,7 +83,7 @@ footer li{
     margin-left: 2%;
     font-weight: bold;
 }
-#iddescription{
+#description{
     padding:1% 2% 0 2%;
 }
 p[class="author&date"]{
@@ -87,9 +91,8 @@ p[class="author&date"]{
     font-size: 1em;
     padding-right: 3%;
 }
-#idSearch{
-    display: inline;
-}
+
+
 .blog_container{
     width: 60%;
     margin-left: 15%;

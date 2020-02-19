@@ -9,7 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
 }
@@ -30,9 +30,12 @@ a:active{
 }
 fieldset{
     text-align: center;
-    background-color: #00a287;
     width: 80%;
     
+}
+fieldset p input{
+    width:30em ;
+    text-align: center;
 }
 h1{
     text-align: center;

@@ -9,7 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
 }
@@ -28,7 +28,7 @@ a:active{
     color: bisque;
     text-decoration: none;
 }
-div [id=info]{
+#info{
     margin: 2% 10% 5% 15%;
 }
 body div img{
@@ -36,14 +36,14 @@ body div img{
     float: left; 
     padding:1em;
 }
-p[id=name]{
+#name{
     font-size: 3em;
 }
-div [id=sub_info]{
+#sub_info{
     margin-top:-1em;
     font-size: 1.5em;
 }
-p[id=email]{
+#email{
     display: inline;
 }
 div[id=bio_content]{
@@ -57,7 +57,7 @@ div[id=bio_content] label{
 h1{
     text-align: center;
 }
-#idremove_btn{
+#remove_btn{
     position: relative;
     top: 5em; 
     left: 55em;  

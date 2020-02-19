@@ -9,7 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
 }
@@ -50,7 +50,7 @@ footer ul{
 footer li{
     display: inline;
 }
-id#remove_btn{
+#remove_btn{
     position: relative;
     top: 5em; 
     left: 55em;  
@@ -58,7 +58,7 @@ id#remove_btn{
     color: black; 
     width: 10%;
 }
-#idbloglink{
+#bloglink{
     text-decoration: none;
 }
 body div div[class=mysavedblogs]{
@@ -69,7 +69,7 @@ body div div[class=mysavedblogs]{
     margin-left: 2%;
     font-weight: bold;
 }
-#iddescription{
+#description{
     padding:1% 2% 0 2%;
 }
 p[class="author&date"]{

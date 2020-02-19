@@ -38,23 +38,18 @@ form{
 fieldset{
     width: 70%;
 }
-fieldset p input[type=text]
+fieldset p input
 {
-    width:90%;
+    width:30em;
     
 }
-#iddescription
-{
-    width:90%;
-    height: 5em;
-}
-fieldset p textarea{
-    width: 90%;
-    height: 30em;
+textarea{
+    width: 30em;
+    height: 10em;
 }
 footer{
     position: absolute; 
-    top: 92%;
+    top: auto;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
@@ -73,12 +68,4 @@ footer ul{
 }
 footer li{
     display: inline;
-}
-textarea[name=desc]{
-    width:90%;
-    height: 5em;
-}
-textarea[name=content]{
-    width:90%; 
-    height:10em;
 }

@@ -9,7 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
 }
@@ -38,23 +38,17 @@ fieldset{
     width: 80%;
     height: 50px;
 }
-fieldset p input[type=text]
+fieldset p input
 {
-    width:90%;
-    
-}
-fieldset p input[id=description]
-{
-    width:90%;
-    height: 5em;
+    width:30em;
 }
 fieldset p textarea{
-    width: 90%;
-    height: 30em;
+    width: 30em;
+    height: 10em;
 }
 footer{
     position: absolute; 
-    top: 92%;
+    top: 100%;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
@@ -73,8 +67,4 @@ footer ul{
 }
 footer li{
     display: inline;
-}
-nav div input[type=search]{
-    width:30em ; 
-    text-align: center;
 }

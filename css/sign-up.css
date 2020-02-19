@@ -9,7 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
 }
@@ -33,23 +33,23 @@ h1{
 }
 form{
     margin-left: 30%;
+    margin-right: 20%;
+    
 }
 fieldset{
     width: 80%;
     height: 50px;
 }
-fieldset p input[type=text]
-[type=email]
-[type=password]{
+fieldset p input{
     width:30em ;
     text-align: center;
 }
 fieldset p textarea{
-    width: 60%;
+    width: 30em;
 }
 footer{
     position: absolute; 
-    top: 92%;
+    top: 100%;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
