@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/sign-up.css">
         <title>Edit Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -10,37 +11,37 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
-        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid" >
                 <ul >
-                    <div class="navbar-header" style="display: inline;">
+                    <div class="navbar-header">
                       <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
                     </div>
-                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
-                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
-                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
-                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <li><a href="blogsfeed.html">Blogs</a></li>
+                    <li><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li><a href="aboutus.html">About us</a></li>
+                    <input type="search" placeholder="Search for a title" >
                     <button id="Search" type="submit" name="search">Search</button>
-                    <li style="display: inline;"><a href="landing-page.html">Logout</a></li>
+                    <li><a href="landing-page.html">Logout</a></li>
                 </ul>
-            <div/>
+            </div>
         </nav>
     </header>
-    <body style="background-color: rgb(167, 165, 165);">
-        <h1 style="text-align: center;">Edit Profile</h1>
+    <body>
+        <h1>Edit Profile</h1>
         <div >
-            <form name="editprofile" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
-                <fieldset  style="width: 80%; margin-bottom: 2em;">
+            <form name="editprofile" method="" action="" onsubmit="return validateform()">
+                <fieldset >
                         <div>
                             <p>
                                 <label>Firstname:</label>
                                 <br/>
-                                <input id="firstname" style="width:30em ;text-align: center;" type="text" name="fname" placeholder="Enter your firstname">
+                                <input id="firstname" type="text" name="fname" placeholder="Enter your firstname">
                             </p>
                             <p>
                                 <label>Lastname:</label>
                                 <br/>
-                                <input id="lastname" style="width:30em ;text-align: center;" type="text" name="lname" placeholder="Enter your lastname">
+                                <input id="lastname" type="text" name="lname" placeholder="Enter your lastname">
                             </p>
                         </div>
                         <p>
@@ -51,12 +52,13 @@
                         <p>
                             <label>Email:</label>
                             <br/>
-                            <input id="email" style="width:30em ;text-align: center;" type="email" name="email" placeholder="Enter your email">
+                            <input id="email" type="email" name="email" placeholder="Enter your email">
                         </p>
+
                         <p> 
                             <label>Bio:</label>
                             <br/>
-                            <textarea id="bio" rows="5" style="width: 60%;" placeholder="Tell us something about yourself"></textarea>
+                            <textarea id="bio" rows="5" placeholder="Tell us something about yourself"></textarea>
                         </p>
                         <p>
                             <label>Change profile image</label>
@@ -108,15 +110,15 @@
             }
         </script>
     </body>
-    <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
-        <p style="display: inline;">
-            <ul style="float: right; margin-right: 1em;">
-                <div class="navbar-header" style="display: inline;">
+    <footer >
+        <p >
+            <ul>
+                <div class="navbar-header" >
+                <li><a href="blogsfeed.html">Blogs</a></li>|
+                <li><a href="savedposts.html">My Saved Blogs</a></li>|
+                <li><a href="aboutus.html">About us</a></li>|
+                <li><a href="adminlogin.html">Admin login</a></li>
                 </div>
-                <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
-                <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
-                <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
-                <li style="display: inline;"><a href="adminlogin.html">Admin login</a></li>
             </ul>
             &copy; COSC 360 Project 
         </p>

@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/editblog.css">
         <title>Edit blog</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -10,41 +11,41 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
-        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid" >
                 <ul >
-                    <div class="navbar-header" style="display: inline;">
+                    <div class="navbar-header">
                       <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
                     </div>
-                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
-                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
-                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
-                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <li><a href="blogsfeed.html">Blogs<a></li>
+                    <li><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li><a href="aboutus.html">About us</a></li>
+                    <input type="search" placeholder="Search for a title">
                     <button id="Search" type="submit" name="search">Search</button>
-                    <li style="display: inline;"><a href="landing-page.html">Logout</a></li>
+                    <li><a href="landing-page.html">Logout</a></li>
                 </ul>
-            <div/>
+            </div>
         </nav>
     </header>
-    <body style="background-color: rgb(167, 165, 165);">
+    <body>
         <div>
-            <h1 style="text-align: center;">Edit blog</h1>
-            <form name="editblog" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
-                <fieldset style="width: 70%;">
+            <h1 >Edit blog</h1>
+            <form name="editblog" method="" action=""  onsubmit="return validateform()">
+                <fieldset>
                         <p>
                             <label>Title:</label>
                             <br/>
-                            <input id="title" style="width:90% ;" type="text" name="title" placeholder="Enter your title">
+                            <input id="title" type="text" name="title" placeholder="Enter your title">
                         </p>
                         <p>
                             <label>Description:</label>
                             <br/>
-                            <textarea id="description" style="width:90%; height: 5em;" type="text" name="desc" placeholder="Enter your description"></textarea>
+                            <textarea id="description" type="text" name="desc" placeholder="Enter your description"></textarea>
                         </p>
                         <p>
                             <label>Content:</label>
                             <br/>
-                            <textarea id="content" style="width:90%; height:15em;" type="text" name="content" placeholder="Enter content for your blog"></textarea>
+                            <textarea id="content" type="text" name="content" placeholder="Enter content for your blog"></textarea>
                         </p>
                         <p>
                             <label>Upload an image</label>
@@ -74,14 +75,14 @@
             }
         </script>
     </body>
-    <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-top: 2%; margin-bottom: 0;height: 4em;" >
-        <p style="display: inline;">
-            <ul style="float: right; margin-right: 1em;">
-                <div class="navbar-header" style="display: inline;">
+    <footer>
+        <p>
+            <ul>
+                <div class="navbar-header">
                 </div>
-                <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
-                <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
-                <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
+                <li><a href="blogsfeed.html">Blogs</a></li>|
+                <li><a href="savedposts.html">My Saved Blogs</a></li>|
+                <li><a href="aboutus.html">About us</a></li>|
             </ul>
             &copy; COSC 360 Project 
         </p>

@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/savedposts.css">
         <title>Saved Blogs</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -10,31 +11,85 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
-        <nav class="navbar navbar-inverse" style="background-color: bisque;">
+        <nav class="navbar navbar-inverse" >
             <div class="container-fluid" >
                 <ul >
-                    <div class="navbar-header" style="display: inline;">
+                    <div class="navbar-header">
                       <a class="navbar-brand" href="blogsfeed.html">CookABlog</a>
                     </div>
-                    <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>
-                    <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>
-                    <li style="display: inline;"><a href="aboutus.html">About us</a></li>
-                    <input style="width:30em ; text-align: center;" type="search" placeholder="Search for a title" style="display: inline;">
+                    <li><a href="blogsfeed.html">Blogs</a></li>
+                    <li><a href="savedposts.html">My Saved Blogs</a></li>
+                    <li><a href="aboutus.html">About us</a></li>
+                    <input type="search" placeholder="Search for a title" >
                     <button id="Search" type="submit" name="search">Search</button>
-                    <li style="display: inline;"><a href="landing-page.html">logout</a></li>
+                    <li><a href="landing-page.html">logout</a></li>
                 </ul>
-            <div/>
+            </div>
         </nav>
     </header>
-    <body style="background-color: rgb(167, 165, 165);">
+    <body >
         <h1 style="text-align: center;">Saved Blogs</h1>
-        <div class="blog_container" style="width: 60%; margin-left: 15%;" >
-            <button id="remove_btn" style="position: relative;top: 5em; left: 55em;  margin-left: 0em; color: black; width: 10%;"> Delete </button>
-            <a id="bloglink" href="#" style="text-decoration: none;">
-                <div class="mysavedblogs" style="width: inherit;   border: solid thin black; ">
+        <div class="blog_container" >
+            <button id="remove_btn"> Delete </button>
+            <a id="bloglink" href="#">
+                <div class="mysavedblogs">
                     <div class="blog">
-                        <label class= "title" style="margin-left: 2%; font-weight: bold;"> Some random text</label>
-                        <p id="description" style="padding:1% 2% 0 2%">
+                        <label class= "title"> Some random text</label>
+                        <p id="description" >
+                            Performed suspicion in certainty so frankness by attention pretended. 
+                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
+                            Joy house worse arise total boy.
+                        </p>
+                        <p class="author&date">
+                                Emmanuel Werimegbe on February 17,2020.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_container"  >
+            <button id="remove_btn"> Delete </button>
+            <a id="bloglink" href="#">
+                <div class="mysavedblogs">
+                    <div class="blog">
+                        <label class= "title" > Some random text</label>
+                        <p id="description">
+                            Performed suspicion in certainty so frankness by attention pretended. 
+                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
+                            Joy house worse arise total boy.
+                        </p>
+                        <p class="author&date">
+                                Emmanuel Werimegbe on February 17,2020.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_container" >
+            <button id="remove_btn" > Delete </button>
+            <a id="bloglink" href="#">
+                <div class="mysavedblogs" >
+                    <div class="blog">
+                        <label class= "title"> Some random text</label>
+                        <p id="description" >
+                            Performed suspicion in certainty so frankness by attention pretended. 
+                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
+                            Joy house worse arise total boy.
+                        </p>
+                        <p class="author&date" >
+                                Emmanuel Werimegbe on February 17,2020.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_container"  >
+            <button id="remove_btn" > Delete </button>
+            <a id="bloglink" href="#">
+                <div class="mysavedblogs" >
+                    <div class="blog">
+                        <label class= "title"> Some random text</label>
+                        <p id="description">
                             Performed suspicion in certainty so frankness by attention pretended. 
                             Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
                             Joy house worse arise total boy.
@@ -46,72 +101,18 @@
                 </div>
             </a>
         </div>
-        <div class="blog_container" style="width: 60%; margin-left: 15%;" >
-            <button id="remove_btn" style="position: relative;top: 5em; left: 55em;  margin-left: 0em; color: black; width: 10%;"> Delete </button>
-            <a id="bloglink" href="#" style="text-decoration: none;">
-                <div class="mysavedblogs" style="width: inherit;   border: solid thin black; ">
+        <div class="blog_container"  >
+            <button id="remove_btn"> Delete </button>
+            <a id="bloglink" href="#" >
+                <div class="mysavedblogs">
                     <div class="blog">
-                        <label class= "title" style="margin-left: 2%; font-weight: bold;"> Some random text</label>
-                        <p id="description" style="padding:1% 2% 0 2%">
+                        <label class= "title" > Some random text</label>
+                        <p id="description" >
                             Performed suspicion in certainty so frankness by attention pretended. 
                             Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
                             Joy house worse arise total boy.
                         </p>
-                        <p class="author&date" style="text-align: right;font-size: 1em;padding-right: 3%;  ">
-                                Emmanuel Werimegbe on February 17,2020.
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="blog_container" style="width: 60%; margin-left: 15%;" >
-            <button id="remove_btn" style="position: relative;top: 5em; left: 55em;  margin-left: 0em; color: black; width: 10%;"> Delete </button>
-            <a id="bloglink" href="#" style="text-decoration: none;">
-                <div class="mysavedblogs" style="width: inherit;   border: solid thin black; ">
-                    <div class="blog">
-                        <label class= "title" style="margin-left: 2%; font-weight: bold;"> Some random text</label>
-                        <p id="description" style="padding:1% 2% 0 2%">
-                            Performed suspicion in certainty so frankness by attention pretended. 
-                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
-                            Joy house worse arise total boy.
-                        </p>
-                        <p class="author&date" style="text-align: right;font-size: 1em;padding-right: 3%;  ">
-                                Emmanuel Werimegbe on February 17,2020.
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="blog_container" style="width: 60%; margin-left: 15%;" >
-            <button id="remove_btn" style="position: relative;top: 5em; left: 55em;  margin-left: 0em; color: black; width: 10%;"> Delete </button>
-            <a id="bloglink" href="#" style="text-decoration: none;">
-                <div class="mysavedblogs" style="width: inherit;   border: solid thin black; ">
-                    <div class="blog">
-                        <label class= "title" style="margin-left: 2%; font-weight: bold;"> Some random text</label>
-                        <p id="description" style="padding:1% 2% 0 2%">
-                            Performed suspicion in certainty so frankness by attention pretended. 
-                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
-                            Joy house worse arise total boy.
-                        </p>
-                        <p class="author&date" style="text-align: right;font-size: 1em;padding-right: 3%;  ">
-                                Emmanuel Werimegbe on February 17,2020.
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="blog_container" style="width: 60%; margin-left: 15%;" >
-            <button id="remove_btn" style="position: relative;top: 5em; left: 55em;  margin-left: 0em; color: black; width: 10%;"> Delete </button>
-            <a id="bloglink" href="#" style="text-decoration: none;">
-                <div class="mysavedblogs" style="width: inherit;   border: solid thin black; ">
-                    <div class="blog">
-                        <label class= "title" style="margin-left: 2%; font-weight: bold;"> Some random text</label>
-                        <p id="description" style="padding:1% 2% 0 2%">
-                            Performed suspicion in certainty so frankness by attention pretended. 
-                            Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. 
-                            Joy house worse arise total boy.
-                        </p>
-                        <p class="author&date" style="text-align: right;font-size: 1em;padding-right: 3%;  ">
+                        <p class="author&date" >
                                 Emmanuel Werimegbe on February 17,2020.
                         </p>
                     </div>
@@ -119,15 +120,15 @@
             </a>
         </div>
     </body>
-    <footer style="position: absolute; top:auto; width:100% ;background-color: bisque; margin-top: 5%; margin-bottom: 0;height: 4em;" >
-        <p style="display: inline;">
-            <ul style="float: right; margin-right: 1em;">
-                <div class="navbar-header" style="display: inline;">
+    <footer >
+        <p >
+            <ul>
+                <div class="navbar-header">
                 </div>
-                <li style="display: inline;"><a href="blogsfeed.html">Blogs</a></li>|
-                <li style="display: inline;"><a href="savedposts.html">My Saved Blogs</a></li>|
-                <li style="display: inline;"><a href="aboutus.html">About us</a></li>|
-                <li style="display: inline;"><a href="adminlogin.html">Admin login</a></li>
+                <li><a href="blogsfeed.html">Blogs</a></li>|
+                <li><a href="savedposts.html">My Saved Blogs</a></li>|
+                <li><a href="aboutus.html">About us</a></li>|
+                <li><a href="adminlogin.html">Admin login</a></li>
             </ul>
             &copy; COSC 360 Project 
         </p>

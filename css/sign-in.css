@@ -1,0 +1,68 @@
+.navbar  {
+    background-color: #00a287 ;
+    display: inline;
+}
+.navbar-header{
+    display: inline;
+    font-weight: bold; 
+}
+nav div li{
+    display: inline;
+}
+nav div input{
+    width:30em ; 
+    text-align: center;
+}
+a:link {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    font-weight: bold;
+    color: #5ed08d;
+    text-decoration: none;
+}
+a:active{
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+fieldset{
+    text-align: center;
+    width: 80%;
+    
+}
+fieldset p input{
+    width:30em ;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+footer{
+    position: absolute; 
+    top: 92%;
+    width:100% ;
+    background-color: #00a287; 
+    margin-bottom: 0;
+    height: 4em;
+}
+footer.navbar-header {
+    display: inline;
+}
+
+footer p {
+display: inline;
+ }
+footer ul{
+    float: right; 
+    margin-right: 1em;
+}
+footer li{
+    display: inline;
+}
+form{
+    margin-left: 15%;
+}
+

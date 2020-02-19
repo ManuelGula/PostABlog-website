@@ -1,0 +1,98 @@
+.navbar  {
+    background-color: #00a287 ;
+    display: inline;
+}
+.navbar-header{
+    display: inline;
+    font-weight: bold; 
+}
+nav div li{
+    display: inline;
+}
+nav div input[type=search]{
+    width:30em ; 
+    text-align: center;
+    
+}
+a:link {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    font-weight: bold;
+    color: #5ed08d;
+    text-decoration: none;
+}
+a:active{
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+h1{
+    margin-left:40%;
+}
+body div{
+    margin:2% 5% 10% 5%;
+}
+body div img{
+    float: left; 
+    height:200px ;
+    margin-right:1%;
+}
+body div p{
+    display: inline; 
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+body div div{
+    float:right;
+    margin-top: 5%; 
+    margin-right: 5%;
+}
+#idauthor{
+    font-style: italic;
+    display: inline;
+}
+#idcomments-container{
+    margin:2% 5% 2% 5%;
+}
+.comments_section{
+    font-size: 1.5em;
+}
+.comments{
+    border-top: solid thin;
+}
+form{
+    margin:2% 5% 2% 5% ;
+    border-top: solid thin;
+}
+fieldset p{
+    font-size: 1.5em;
+}
+fieldset textarea{
+    width: 40%; 
+    height: 5em;
+}
+footer{
+    position: absolute; 
+    top: auto;
+    width:100% ;
+    background-color: #00a287; 
+    margin-bottom: 0;
+    height: 4em;
+}
+footer.navbar-header {
+    display: inline;
+}
+
+footer p {
+display: inline;
+ }
+footer ul{
+    float: right; 
+    margin-right: 1em;
+}
+footer li{
+    display: inline;
+}
