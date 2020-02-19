@@ -60,7 +60,7 @@ footer ul{
 footer li{
     display: inline;
 }
-button[id=save_btn]{
+#idsave_btn{
     position: relative;
     top: 5em; 
     left: 55em;  
@@ -86,4 +86,7 @@ p[class="author&date"]{
     text-align: right;
     font-size: 1em;
     padding-right: 3%;
+}
+#idSearch{
+    display: inline;
 }
