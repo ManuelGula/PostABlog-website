@@ -90,3 +90,7 @@ p[class="author&date"]{
 #idSearch{
     display: inline;
 }
+.blog_container{
+    width: 60%;
+    margin-left: 15%;
+}
