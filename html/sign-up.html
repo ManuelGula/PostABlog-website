@@ -31,8 +31,8 @@
     <body>
         <h1>Sign Up</h1>
         <div >
-            <form method="" action="">
-                <fieldset>
+            <form name="signup" method="" action="" onsubmit="return validateform()">
+                <fieldset >
                         <div>
                             <p>
                                 <label>Firstname:</label>
@@ -74,13 +74,56 @@
                                 <textarea id="bio" rows="3" placeholder="Tell us something about yourself"></textarea>
                             </p>
                         </div>
+                        <p>
+                            <label>Add profile image</label>
+                            <br/>
+                            <input id="prof_image" name="prof_image" type="file" accept="image/*">
+                        </p>
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
             </form>
         </div>
-        
+        <script>
+            function validateform(){
+                var fname=document.forms["signup"]["fname"].value;
+                var lname=document.forms["signup"]["lname"].value;
+                var username=document.forms["signup"]["username"].value;
+                var email=document.forms["signup"]["email"].value;
+                var bio=document.getElementById("bio").value;
+                var image=document.forms["signup"]["prof_image"].value;
+
+                if (fname=="" || lname=="" || username=="" || email=="" ){
+                    alert("all fields must be filled")
+                    return false;
+                }
+                else if(fname==""){
+                    alert("You must enter a first name!");
+                    return false;
+                }
+                else if(lname==""){
+                    alert("You must enter a  last name!");
+                    return false;
+                }
+                else if(username==""){
+                    alert("You must enter your username");
+                    return false;
+                }
+                else if(email==""){
+                    alert("You must enter an email");
+                    return false;
+                }
+                else if(bio==""){
+                    alert("You must enter an bio");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer>
         <p>

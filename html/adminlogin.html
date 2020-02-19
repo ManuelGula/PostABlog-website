@@ -32,8 +32,8 @@
     <body>
         <h1>Admin Sign In</h1>
         <div>
-            <form method="" action="" >
-                <fieldset  >
+            <form name=adminlogin method="" action=""  onsubmit="return validateform()">
+                <fieldset style="width: 70%;" >
                         <p>
                             <label>Username:</label>
                             <br/>
@@ -50,6 +50,24 @@
                 </fieldset>
             </form>
         </div>
+        <script>
+            function validateform(){
+                var username=document.forms["adminlogin"]["username"].value;
+                var password=document.forms["adminlogin"]["password"].value;
+                if(username=="" && password=="" ){
+                    alert("enter username and password");
+                    return false;
+                }
+                else if(username!=="admin"){
+                    alert("You must be an admin to sign in");
+                    return false;
+                }
+                else if(password!=="admin"){
+                    alert("enter password");
+                    return false;
+                }
+            }
+        </script>
         
     </body>
     <footer>

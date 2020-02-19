@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
         <link rel="stylesheet" href="/css/editblog.css">
+        <title>Edit blog</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -29,13 +29,13 @@
     </header>
     <body>
         <div>
-            <h1>Edit blog</h1>
-            <form method="" action="">
+            <h1 >Edit blog</h1>
+            <form name="editblog" method="" action=""  onsubmit="return validateform()">
                 <fieldset>
                         <p>
                             <label>Title:</label>
                             <br/>
-                            <input id="title" type="text" name="desc" placeholder="Enter your title">
+                            <input id="title" type="text" name="title" placeholder="Enter your title">
                         </p>
                         <p>
                             <label>Description:</label>
@@ -50,14 +50,30 @@
                         <p>
                             <label>Upload an image</label>
                             <br/>
-                            <input type="file">
+                            <input id="blog_image" name="blog_image" type="file" accept="image/*">
                         </p>
-                    <button type="submit">Post your blog</button>
+                    <button type="submit">Edit your blog</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
             </form>
         </div>
+        <script>
+            function validateform(){
+                var title=document.forms["editblog"]["title"].value;
+                var description=document.getElementById("description").value;
+                var content=document.getElementById("content").value;
+                var image=document.forms["editblog"]["blog_image"].value;
+                if(title=="" || description=="" || content=="" ){
+                    alert("All fields must be filled to confirm edit");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
     <footer>
         <p>
