@@ -1,0 +1,115 @@
+.navbar  {
+    background-color: #00a287 ;
+    display: inline;
+}
+.navbar-header{
+    display: inline;
+    font-weight: bold; 
+}
+nav div li{
+    display: inline;
+}
+nav div input[type=search]{
+    width:30em ; 
+    text-align: center;
+}
+a:link {
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+a:visited{
+    font-weight: bold;
+    color: #5ed08d;
+    text-decoration: none;
+}
+a:active{
+    font-weight: bold;
+    color: bisque;
+    text-decoration: none;
+}
+div [id=info]{
+    margin: 2% 10% 5% 15%;
+}
+body div img{
+    height: 10em; 
+    float: left; 
+    padding:1em;
+}
+p[id=name]{
+    font-size: 3em;
+}
+div [id=sub_info]{
+    margin-top:-1em;
+    font-size: 1.5em;
+}
+p[id=email]{
+    display: inline;
+}
+div[id=bio_content]{
+    width: 60%;
+    margin: 0 10% 5% 15%;
+}
+div[id=bio_content] label{
+    font-size: 1.5em; 
+    margin-left: 35%;
+}
+h1{
+    text-align: center;
+}
+#idremove_btn{
+    position: relative;
+    top: 5em; 
+    left: 55em;  
+    margin-left: 0em; 
+    color: black; 
+    width: 10%;
+}
+.blog_container{
+    width: 60%;
+    margin-left: 15%;
+}
+#idbloglink{
+    text-decoration: none;
+}
+.mysavedblogs{
+    width: inherit;
+    border: solid thin black;
+}
+.title{
+    margin-left: 2%;
+    font-weight: bold;
+}
+#iddescription{
+    padding:1% 2% 0 2%;
+}
+p[class="author&date"]{
+    text-align: right;
+    font-size: 1em;
+    padding-right: 3%;
+}
+footer{
+    position: absolute; 
+    top: 92%;
+    width:100% ;
+    background-color: #00a287; 
+    margin-bottom: 0;
+    height: 4em;
+}
+footer.navbar-header {
+    display: inline;
+}
+
+footer p {
+display: inline;
+ }
+footer ul{
+    float: right; 
+    margin-right: 1em;
+}
+footer li{
+    display: inline;
+}
+body{
+    background-color: black;
+}
