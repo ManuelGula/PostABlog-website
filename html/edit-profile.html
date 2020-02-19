@@ -29,18 +29,18 @@
     <body style="background-color: rgb(167, 165, 165);">
         <h1 style="text-align: center;">Edit Profile</h1>
         <div >
-            <form method="" action="" style="margin-left: 30%;">
-                <fieldset  style="width: 80%;height: 50px;">
+            <form name="editprofile" method="" action="" style="margin-left: 30%;" onsubmit="return validateform()">
+                <fieldset  style="width: 80%; margin-bottom: 2em;">
                         <div>
                             <p>
                                 <label>Firstname:</label>
                                 <br/>
-                                <input id="firstname" style="width:30em ;text-align: center;" type="text" name="name" placeholder="Enter your firstname">
+                                <input id="firstname" style="width:30em ;text-align: center;" type="text" name="fname" placeholder="Enter your firstname">
                             </p>
                             <p>
                                 <label>Lastname:</label>
                                 <br/>
-                                <input id="lastname" style="width:30em ;text-align: center;" type="text" name="name" placeholder="Enter your lastname">
+                                <input id="lastname" style="width:30em ;text-align: center;" type="text" name="lname" placeholder="Enter your lastname">
                             </p>
                         </div>
                         <p>
@@ -53,21 +53,62 @@
                             <br/>
                             <input id="email" style="width:30em ;text-align: center;" type="email" name="email" placeholder="Enter your email">
                         </p>
-                        <div>
-                            <p> 
-                                <label>Bio:</label>
-                                <br/>
-                                <textarea id="bio" rows="5" style="width: 60%;" placeholder="Tell us something about yourself"></textarea>
-                            </p>
-                        </div>
+                        <p> 
+                            <label>Bio:</label>
+                            <br/>
+                            <textarea id="bio" rows="5" style="width: 60%;" placeholder="Tell us something about yourself"></textarea>
+                        </p>
+                        <p>
+                            <label>Change profile image</label>
+                            <br/>
+                            <input id="prof_image" name="prof_image" type="file" accept="image/*">
+                        </p>
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
             </form>
         </div>
+        <script>
+            function validateform(){
+                var fname=document.forms["editprofile"]["fname"].value;
+                var lname=document.forms["editprofile"]["lname"].value;
+                var username=document.forms["editprofile"]["username"].value;
+                var email=document.forms["editprofile"]["email"].value;
+                var bio=document.getElementById("bio").value;
+                var image=document.forms["editblog"]["prof_image"].value;
+                if (fname=="" || lname=="" || username=="" || email=="" || image==""){
+                    alert("all fields must be filled")
+                    return false;
+                }
+                else if(fname=="" ){
+                    alert("You must enter a first name!");
+                    return false;
+                }
+                else if(lname=="" ){
+                    alert("You must enter a  last name!");
+                    return false;
+                }
+                else if(username==""){
+                    alert("You must enter your username");
+                    return false;
+                }
+                else if(email==""){
+                    alert("You must enter an email");
+                    return false;
+                }
+                else if(bio==""){
+                    alert("You must enter an bio");
+                    return false;
+                }
+                else if(image==""){
+                    alert("you must upload an image");
+                    return false;
+                }
+            }
+        </script>
     </body>
-    <footer style="position: absolute; top: 92%; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
+    <footer style="position: absolute; top: auto; width:100% ;background-color: bisque; margin-bottom: 0;height: 4em;" >
         <p style="display: inline;">
             <ul style="float: right; margin-right: 1em;">
                 <div class="navbar-header" style="display: inline;">
