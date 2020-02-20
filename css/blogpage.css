@@ -63,7 +63,7 @@ body div div{
 .comments{
     border-top: solid thin;
 }
-form{
+form[name="makeacomment"]{
     margin:2% 5% 2% 5% ;
     border-top: solid thin;
 }

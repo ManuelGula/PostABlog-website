@@ -1,18 +1,7 @@
 .navbar  {
     background-color: #00a287 ;
-    display: inline;
 }
-.navbar-header{
-    display: inline;
-    font-weight: bold; 
-}
-nav div li{
-    display: inline;
-}
-nav div input{
-    width:30em ; 
-    text-align: center;
-}
+
 a:link {
     font-weight: bold;
     color: black;
@@ -31,7 +20,12 @@ a:active{
 h1{
     text-align: center;
 }
-form{
+form[name="signup"]{
+    margin-left: 30%;
+    margin-right: 20%;
+    
+}
+form[name="editprofile"]{
     margin-left: 30%;
     margin-right: 20%;
     

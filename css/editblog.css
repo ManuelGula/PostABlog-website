@@ -1,18 +1,8 @@
 .navbar  {
     background-color: #00a287 ;
-    display: inline;
+   
 }
-.navbar-header{
-    display: inline;
-    font-weight: bold; 
-}
-nav div li{
-    display: inline;
-}
-nav div input{
-    width:30em ; 
-    text-align: center;
-}
+
 a:link {
     font-weight: bold;
     color: black;
@@ -31,8 +21,9 @@ a:active{
 h1{
     text-align: center;
 }
-form{
+body form[name="editblog"]{
     margin-left: 30%;
+    margin-bottom: 3em;
 }
 fieldset{
     width: 80%;
@@ -54,9 +45,7 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
-    display: inline;
-}
+
 
 footer p {
 display: inline;
