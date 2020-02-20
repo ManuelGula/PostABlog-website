@@ -9,10 +9,7 @@
 nav div li{
     display: inline;
 }
-nav div input{
-    width:30em ; 
-    text-align: center;
-}
+
 a:link {
     font-weight: bold;
     color: black;
@@ -52,14 +49,11 @@ td{
 }
 footer{
     position: absolute; 
-    top: 92%;
+    top: 100%;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
     height: 4em;
-}
-footer .navbar-header {
-    display: inline;
 }
 
 footer p {

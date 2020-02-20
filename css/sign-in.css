@@ -62,7 +62,12 @@ footer ul{
 footer li{
     display: inline;
 }
-form{
+form[name="signin"]{
     margin-left: 15%;
 }
-
+form[name="adminlogin"]{
+    margin-left: 17%;
+}
+form[name="forgotpass"]{
+    margin-left: 17%;
+}
