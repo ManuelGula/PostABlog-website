@@ -35,32 +35,27 @@
     <body>
         <h1>Create a blog</h1>
         <div>
-            <form name="createblog" method="" action="" onsubmit="return validateform()">
+            <form id="editblog" name="createblog" method="" action="" onsubmit="return validateform()">
                 <fieldset>
                         <p>
                             <label>Title:</label>
                             <br/>
-                            <input id="text" type="text" name="title" placeholder="Enter your blog's title">
+                            <input id="title" type="text" name="title" placeholder="Enter your blog's title">
                         </p>
                         <p>
                             <label>Description:</label>
                             <br/>
-                            <textarea id="text" rows="3" name="desc" placeholder="Enter your description"></textarea>
+                            <textarea id="desc" rows="3" name="desc" placeholder="Enter your description"></textarea>
                         </p>
                         <p>
                             <label>Content:</label>
                             <br/>
-                            <textarea id="text" rows="10" name="content" placeholder="Enter your content for your blog"></textarea>
+                            <textarea id="content" rows="10" name="content" placeholder="Enter your content for your blog"></textarea>
                         </p>
                         <p>
                             <label>Upload an image</label>
                             <br/>
                             <input id="blog_image" name="blog_image" type="file" accept="image/*">
-                        </p>
-                        <p>
-                            <label>Date</label>
-                            <br/>
-                            <input id="date_uploaded" type="date">
                         </p>
                     <button type="submit">Post your blog</button>
                     <button type="reset">Reset</button>
@@ -71,14 +66,22 @@
         <script>
             function validateform(){
                 var title=document.forms["editblog"]["title"].value;
-                var description=document.getElementById("description").value;
+                var description=document.getElementById("desc").value;
                 var content=document.getElementById("content").value;
                 var image=document.forms["editblog"]["blog_image"].value;
-                if(title=="" || description=="" || content=="" ){
-                    alert("All fields must be filled to confirm create a blog");
+                if(title==""||title==null){
+                    alert("Enter a title");
                     return false;
                 }
-                else if(image==""){
+                if(description==""||description==null){
+                    alert("Enter a description");
+                    return false;
+                }
+                if(content==""||content==null){
+                    alert("Fill in your content.");
+                    return false;
+                }
+                if(image==""|| image==null){
                     alert("you must upload an image");
                     return false;
                 }

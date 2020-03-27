@@ -12,10 +12,6 @@ nav div li{
 nav div input{
     width:30em ; 
     text-align: center;
-    
-}
-nav div input{
-    display: inline;
 }
 a:link {
     font-weight: bold;
@@ -24,7 +20,7 @@ a:link {
 }
 a:visited{
     font-weight: bold;
-    color: #5ed08d;
+    color: #31493b;
     text-decoration: none;
 }
 a:active{
@@ -32,16 +28,7 @@ a:active{
     color: bisque;
     text-decoration: none;
 }
-h1{
-    text-align: center;
-}
-body div{
-    width: 60%;
-    margin-left: 15%;
-}
-body div img{
-    width: 60px;
-}
+
 footer{
     position: absolute; 
     top: auto;
@@ -50,10 +37,13 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer .navbar-header {
+footer.navbar-header {
     display: inline;
 }
+body h1{
+    text-align: center;
 
+}
 footer p {
 display: inline;
  }
@@ -75,7 +65,7 @@ footer li{
 #bloglink{
     text-decoration: none;
 }
-.mysavedblogs{
+body div div[class=mysavedblogs]{
     width: inherit;
     border: solid thin black;
 }
@@ -91,9 +81,8 @@ p[class="author&date"]{
     font-size: 1em;
     padding-right: 3%;
 }
-
-
 .blog_container{
     width: 60%;
     margin-left: 15%;
+    margin-bottom: 2em;
 }
