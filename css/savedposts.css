@@ -9,6 +9,10 @@
 nav div li{
     display: inline;
 }
+body h1{
+    text-align: center;
+
+}
 nav div input{
     width:30em ; 
     text-align: center;
@@ -20,7 +24,7 @@ a:link {
 }
 a:visited{
     font-weight: bold;
-    color: #5ed08d;
+    color: #212b07;
     text-decoration: none;
 }
 a:active{
@@ -80,4 +84,5 @@ p[class="author&date"]{
 .blog_container{
     width: 60%;
     margin-left: 15%;
+    margin-bottom: 2em;
 }

@@ -40,12 +40,12 @@
                             <p>
                                 <label>Firstname:</label>
                                 <br/>
-                                <input id="firstname" type="text" name="name" placeholder="Enter your firstname">
+                                <input id="firstname" type="text" name="firstname" placeholder="Enter your firstname">
                             </p>
                             <p>
                                 <label>Lastname:</label>
                                 <br/>
-                                <input id="lastname" type="text" name="name" placeholder="Enter your lastname">
+                                <input id="lastname" type="text" name="lastname" placeholder="Enter your lastname">
                             </p>
                         </div>
                         <p>
@@ -67,14 +67,14 @@
                             <p>
                                 <label>Retype Password:</label>
                                 <br/>
-                                <input id="retype-password" type="password" name="password" placeholder="Retype your password">
+                                <input id="retype-password" type="password" name="re-password" placeholder="Retype your password">
                             </p>
                         </div>
                         <div>
                             <p> 
                                 <label>Bio:</label>
                                 <br/>
-                                <textarea id="bio" rows="3" placeholder="Tell us something about yourself"></textarea>
+                                <textarea id="bio" name="bio" rows="3" placeholder="Tell us something about yourself"></textarea>
                             </p>
                         </div>
                         <p>
@@ -90,39 +90,49 @@
         </div>
         <script>
             function validateform(){
-                var fname=document.forms["signup"]["fname"].value;
-                var lname=document.forms["signup"]["lname"].value;
+                var fname=document.forms["signup"]["firstname"].value;
+                var lname=document.forms["signup"]["lastname"].value;
                 var username=document.forms["signup"]["username"].value;
                 var email=document.forms["signup"]["email"].value;
                 var bio=document.getElementById("bio").value;
+                var pass=document.forms["signup"]["password"].value;
+                var repass=document.forms["signup"]["retype-password"].value;
                 var image=document.forms["signup"]["prof_image"].value;
 
-                if (fname=="" || lname=="" || username=="" || email=="" ){
-                    alert("all fields must be filled")
-                    return false;
-                }
-                else if(fname==""){
+                if(fname==""||fname==null){
                     alert("You must enter a first name!");
                     return false;
                 }
-                else if(lname==""){
+                if(lname==""|| lname==null){
                     alert("You must enter a  last name!");
                     return false;
                 }
-                else if(username==""){
+                if(username==""|| username==null){
                     alert("You must enter your username");
                     return false;
                 }
-                else if(email==""){
+                if(email==""|| email==null){
                     alert("You must enter an email");
                     return false;
                 }
-                else if(bio==""){
+                if(pass==""|| pass==null){
+                    alert("You must enter an password");
+                    return false;
+                }
+                if(repass==""|| repass==null){
+                    alert("retype password");
+                    return false;
+                }
+                if(bio==""||bio==null){
                     alert("You must enter an bio");
                     return false;
                 }
-                else if(image==""){
+                if(image==""|| image==null){
                     alert("you must upload an image");
+                    return false;
+                }
+                if(pass!==repass){
+                    alert("passwords must match")
                     return false;
                 }
             }
