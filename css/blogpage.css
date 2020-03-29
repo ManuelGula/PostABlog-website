@@ -9,11 +9,11 @@
 nav div li{
     display: inline;
 }
-nav div input[type=search]{
+nav div input{
     width:30em ; 
     text-align: center;
-    
 }
+
 a:link {
     font-weight: bold;
     color: black;
@@ -82,9 +82,7 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
-    display: inline;
-}
+
 
 footer p {
 display: inline;
