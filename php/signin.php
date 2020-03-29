@@ -109,7 +109,7 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search for a title" aria-label="Search for a title">
                     <button class="btn btn-danger navbar-btn" type="submit">Search</button>
                 </form>
-                <li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+                <li class="nav-item"><a class="nav-link" href="signup.php">Sign up</a></li>
               </ul>
             </div>
         </nav>
