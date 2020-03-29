@@ -68,6 +68,7 @@ h1{
 .blog_container{
     width: 60%;
     margin-left: 15%;
+    margin-bottom: 2em;
 }
 #idbloglink{
     text-decoration: none;
