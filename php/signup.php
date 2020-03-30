@@ -8,15 +8,29 @@ $firstname_err= $lastname_err= $username_err =$email_err = $password_err = $conf
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    //validate firstname
+    if(empty(trim($_POST["firstname"]))){
+        $firstname_err = "Please enter a first name.";
+    } else{
+        $firstname = trim($_POST["firstname"]);
+    }
+
+    //validate lastname
+    if(empty(trim($_POST["lastname"]))){
+        $lastname_err = "Please enter a last name.";
+    } else{
+        $lastname = trim($_POST["lastname"]);
+    }
  
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = :username";
+        $sql = "SELECT userid FROM users WHERE username = :username";
         
-        if($stmt = $pdo->prepare($sql)){
+        if($stmt = $link->prepare($sql)){
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             
@@ -38,14 +52,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             unset($stmt);
         }
     }
+
     //validate email
     if(empty(trim($_POST["email"]))){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE email = :email";
+        $sql = "SELECT userid FROM users WHERE email = :email";
         
-        if($stmt = $pdo->prepare($sql)){
+        if($stmt = $link->prepare($sql)){
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
             
@@ -78,29 +93,66 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate confirm password
-    if(empty(trim($_POST["retype-password"]))){
+    if(empty(trim($_POST["re-password"]))){
         $confirm_password_err = "Please confirm password.";     
     } else{
-        $confirm_password = trim($_POST["retype-password"]);
+        $confirm_password = trim($_POST["re-password"]);
         if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
         }
     }
-    
+
+    //validate bio
+    if(empty(trim($_POST["bio"]))){
+        $bio_err = "Please enter a bio.";
+    } else{
+        $bio = trim($_POST["bio"]);
+    }
+
+    // upload image to be done...
+    if(isset($_POST['submit'])) 
+    {   
+        $folder ="../upload/"; 
+        $image = $_FILES['prof_image']['name']; 
+        $path = $folder . $image ;
+        $target_file=$folder.basename($_FILES["prof_image"]["name"]);
+        $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+        $allowed=array('jpeg','png' ,'jpg'); 
+        $filename=$_FILES['prof_image']['name']; 
+        $ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
+    { 
+     $image_err= "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+    }
+    else{ 
+        move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path); 
+        // $sth=$link->prepare("insert into blog(blogimg)values(:image) "); 
+        
+        // $sth->execute();     
+        } 
+    } 
+
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($firstname_err) && empty($lastname_err) && empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($bio_err)&& empty($image_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $sql = "INSERT INTO users (firstname, lastname, username, email, pass, bio,pic) VALUES (:firstname, :lastname, :username, :email, :password, :bio, :image)";
          
-        if($stmt = $pdo->prepare($sql)){
+        if($stmt = $link->prepare($sql)){
             // Bind variables to the prepared statement as parameters
+            $stmt->bindParam(":firstname", $param_firstname, PDO::PARAM_STR);
+            $stmt->bindParam(":lastname", $param_lastname, PDO::PARAM_STR);
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
             $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-            
+            $stmt->bindParam(":bio", $param_bio, PDO::PARAM_STR);
+            $stmt->bindParam(':image',$image); 
             // Set parameters
+            $param_firstname=$firstname;
+            $param_lastname=$lastname;
             $param_username = $username;
+            $param_email=$email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_bio=$bio;
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -116,7 +168,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    unset($pdo);
+    unset($link);
 }
 ?>
 <!DOCTYPE html>
@@ -125,24 +177,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <meta charset="utf-8">
         <title>Sign Up</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/sign-up.css"> 
+        <link rel="stylesheet" type="text/css" href="../css/sign-up.css"> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/android-chrome-512x512.png">
     </head>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="landing-page.html">CookABlog</a>
+            <a class="navbar-brand" href="landing-page.php">CookABlog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="blogsfeed.html">Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="savedposts.html">My Saved Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.html">About us</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogsfeed.php">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.php">About us</a></li>
                 <form class="form-inline" method="" action="">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search for a title" aria-label="Search for a title">
                     <button class="btn btn-danger navbar-btn" type="submit">Search</button>
@@ -155,7 +207,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
         <h1>Sign Up</h1>
         <div >
-            <form name="signup" method="" action="" onsubmit="return validateform()">
+            <form name="signup" method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return validateform()">
                 <fieldset >
                         <div>
                             <p>
@@ -173,6 +225,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <label>Username:</label>
                             <br/>
                             <input id="username" type="text" name="username" placeholder="Enter your username">
+                            <?php if(isset($username_err))
+                                    echo $username_err; 
+                                ?>
                         </p>
                         <p>
                             <label>Email:</label>
@@ -203,7 +258,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <br/>
                             <input id="prof_image" name="prof_image" type="file" accept="image/*">
                         </p>
-                    <button type="submit">Submit</button>
+                    <button name="submit" type="submit">Submit</button>
                     <button type="reset">Reset</button>
 
                 </fieldset>
@@ -264,10 +319,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <ul>
                 <div class="navbar-header">
                 </div>
-                <li><a href="blogsfeed.html">Blogs</a></li>|
-                <li><a href="savedposts.html">My Saved Blogs</a></li>|
-                <li><a href="aboutus.html">About us</a></li>|
-                <li><a href="adminlogin.html">Admin login</a></li>
+                <li><a href="blogsfeed.php">Blogs</a></li>|
+                <li><a href="savedposts.php">My Saved Blogs</a></li>|
+                <li><a href="aboutus.php">About us</a></li>|
+                <li><a href="adminlogin.php">Admin login</a></li>
             </ul>
             &copy; COSC 360 Project 
         </p>
