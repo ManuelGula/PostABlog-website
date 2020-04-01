@@ -1,100 +1,122 @@
+<?php
+    require_once "config.php";
+    if(!isset($_GET['blogid']))
+        die("no blog info for that id");
+    else{
+        $blogid=$_GET['blogid'];
+        $sql="select title,description, blog_content,created_date,firstname,lastname,blogimg from blog,users where blog.userid=users.userid and blogid='$blogid'";
+        $q=$link->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+
+        $commentsql="select com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
+        $com=$link->query($commentsql);
+        $com->setFetchMode(PDO::FETCH_ASSOC);
+    }
+    // session_start();
+    if(isset($_SESSION["loggedin"])){
+        $comment=$comment_err="";
+        
+        if($_SERVER["REQUEST_METHOD"]== "POST"){
+            if(empty(trim($_POST["make_a_comment"]))){
+                $comment_err = "Please enter a comment ";
+            }else{
+                $comment = trim($_POST["make_a_comment"]);
+            }
+        }
+        if(isset($_REQUEST['submit-comment'])){
+            if(empty($comment_err)){
+            $sql="INSERT INTO comment(userid,com_content,blogid) values(:userid,:comment,:blogid)";
+        
+            if($stmt = $link->prepare($sql)){
+                    // Bind variables to the prepared statement as parameters
+                    $stmt->bindParam(':userid',$_SESSION["id"]); 
+                    $stmt->bindParam(':blogid',$_GET['blogid']); 
+                    $stmt->bindParam(':comment',$comment); 
+                
+                    if($stmt->execute()){
+                        header("location: blogpage.php?blogid=".$blogid);
+                        
+                    } else{
+                        echo "Something went wrong. Please try again later.";
+                    }
+            
+                    // Close statement
+                    unset($stmt);
+                }
+            }
+        }
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="/css/blogpage.css">
+        <link rel="stylesheet" href="../css/blogpage.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/android-chrome-512x512.png">
     </head>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="landing-page.html">CookABlog</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="blogsfeed.html">Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="savedposts.html">My Saved Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.html">About us</a></li>
-                <form class="form-inline" method="" action="">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for a title" aria-label="Search for a title">
-                    <button class="btn btn-danger navbar-btn" type="submit">Search</button>
-                </form>
-                <li class="nav-item"><a class="nav-link" href="landing-page.html">Logout</a></li>
-              </ul>
-            </div>
-        </nav>
-    </header>
+    <?php  include_once "navbar.php"; ?>
     <body>
-        
+        <?php 
+             $r=$q->fetch();
+        ?>
         <div id="blog-container">
-            <h1>Random text</h1>
-            <img id="blog-image" src="../images/welcome_image.jpg" alt="">
+            <h1><?php echo $r['title']; ?></h1>
+            <img id="blog-image" src= "upload/<?php echo $r['blogimg']; ?>" alt="">
 
             <p id="content" >
-            Performed suspicion in certainty so frankness by attention pretended. Newspaper or in tolerably education enjoyment. Extremity excellent certainty discourse sincerity no he so resembled. Joy house worse arise total boy but. Elderly up chicken do at feeling is. Like seen drew no make fond at on rent. Behaviour extremely her explained situation yet september gentleman are who. Is thought or pointed hearing he. 
-    
-    Extremity direction existence as dashwoods do up. Securing marianne led welcomed offended but offering six raptures. Conveying concluded newspaper rapturous oh at. Two indeed suffer saw beyond far former mrs remain. Occasional continuing possession we insensible an sentiments as is. Law but reasonably motionless principles she. Has six worse downs far blush rooms above stood. 
-    
-    Spot of come to ever hand as lady meet on. Delicate contempt received two yet advanced. Gentleman as belonging he commanded believing dejection in by. On no am winding chicken so behaved. Its preserved sex enjoyment new way behaviour. Him yet devonshire celebrated especially. Unfeeling one provision are smallness resembled repulsive. 
-    
-    Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty for remove plenty regard you summer though. He preference connection astonished on of ye. Partiality on or continuing in particular principles as. Do believing oh disposing to supported allowance we. 
-    
-    Case read they must it of cold that. Speaking trifling an to unpacked moderate debating learning. An particular contrasted he excellence favourable on. Nay preference dispatched difficulty continuing joy one. Songs it be if ought hoped of. Too carriage attended him entrance desirous the saw. Twenty sister hearts garden limits put gay has. We hill lady will both sang room by. Desirous men exercise overcame procured speaking her followed. 
-                
+                <?php echo $r['blog_content']; ?>
             </p>
             <div>
                 <!-- <label for="author">By</label> -->
-                <p id="author" >By <a href="#">Emmanuel Werimegbe</a></p>
+                <p id="author" >By <a href="#"><?php echo $r['firstname']." ".$r['lastname'];  ?></a></p>
                 <p id="date_created" >
-                    <time datetime="17-02-2020"> February 17,2020.</time>
+                    <time datetime="17-02-2020"> <?php echo "on ".$r['created_date']; ?></time>
                 </p>
             </div>
         </div>
+        <br>
         <section id="comments-container">
             <p class="comments_section" >Comments</p>
-            <div class="comments">
-                <p>
-                    By <a href="#">Emmanuel Werimegbe</a> on <time datetime="17-02-2020"> February 17,2020.</time>
-                </p>
-                <p>
-                    Life changing.
-                </p>
-            </div>
-            <div class="comments" style="border-style: thin; border-top:dotted; border-width: thin; padding-top: 2%;">
-                <p>
-                    By <a href="#">Davido</a> on <time datetime="17-02-2020"> February 17,2020.</time>
-                </p>
-                <p>
-                    Life changing, couldnt have said it any better.
-                </p>
-            </div>
+            <?php while($comments=$com->fetch()): 
+                  echo  '<div class="comments">
+                        <p>
+                            By <a href="#">'.htmlspecialchars($comments['firstname'])." ".htmlspecialchars($comments['lastname']).'</a> on <time datetime="17-02-2020">'.htmlspecialchars($comments['datecreated']).'</time>
+                        </p>
+                        <br>
+                        <p>
+                            <em>'.htmlspecialchars($comments['com_content']).'</em>
+                        </p>
+                    </div>';
+                ?>
+                <?php endwhile;?>
         </section>
-        <form id="makeacomment-container" method="" action="">
-            <fieldset>
-                <p class="comments_section">Leave a comment</p>
-                <textarea name="make_a_comment" id="make_a_comment"  rows="2" placeholder="Say something about this blog"></textarea>
-                <br/>
-                <button id= "submit-comment" type="submit">Submit</button>
-            </fieldset>
-        </form>
+        <?php
+            if(isset($_SESSION["loggedin"])){
+            echo '<form id="makeacomment-container" name="comment" method="POST" action="" onsubmit="return validateform()">
+                    <fieldset>
+                        <p class="comments_section">Leave a comment</p>
+                        <textarea name="make_a_comment" id="make_a_comment"  rows="2" placeholder="Say something about this blog"></textarea>
+                        <br/>
+                        <button id= "submit-comment" name="submit-comment" type="submit">Submit</button>
+                    </fieldset>
+                </form>';
+            }
+        ?>
     </body>
-        <footer >
-            <p>
-                <ul>
-                    <div class="navbar-header">
-                    </div>
-                    <li><a href="blogsfeed.html">Blogs</a></li>|
-                    <li><a href="savedposts.html">My Saved Blogs</a></li>|
-                    <li><a href="aboutus.html">About us</a></li>|
-                    <li><a href="adminlogin.html">Admin login</a></li>
-                </ul>
-                &copy; COSC 360 Project 
-            </p>
-        </footer>
+        <script>
+            function validateform(){
+                var comment=document.getElementById("make_a_comment").value;
+                if(comment==""||comment==null){
+                    alert("Enter a description");
+                    return false;
+                }
+            }
+        </script>
+        <?php include_once "footer.php" ?>
 </html>

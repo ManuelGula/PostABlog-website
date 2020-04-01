@@ -1,14 +1,19 @@
 <?php
+ 
+ 
+ session_start();
+ if(!isset($_SESSION["loggedin"]) && !$_SESSION["loggedin"] === true){
+     header("location: signin.php");
+     exit;
+    }
+
 // Include config file
 require_once "config.php";
- 
 // Define variables and initialize with empty values
 $title= $desc= $content= $image = "";
 $title_err= $desc_err= $content_err =$image_err = "";
+$upload_err="not uploaded";
 
-session_start();
-
- 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -32,42 +37,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $content = trim($_POST["content"]);
     }
     
-    // validate image upload
-    // if (count($_FILES) > 0) {
-    //     if (is_uploaded_file($_FILES['blog_image']['tmp_name'])) {
-    //         $image = file_get_contents($_FILES['blog_image']['tmp_name']);   
-    //     }
-    //     else{
-    //         $image_err = "Please enter content.";
-    //     }
-    // }
-
     if(isset($_POST['submit'])) 
     {   
-        $folder ="../upload/"; 
-        $image = $_FILES['blog_image']['name']; 
+        $folder ="upload/"; 
+        $image = $_FILES['blog_image']['name'];
         $path = $folder . $image ;
         $target_file=$folder.basename($_FILES["blog_image"]["name"]);
         $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
         $allowed=array('jpeg','png' ,'jpg'); 
         $filename=$_FILES['blog_image']['name']; 
-        $ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
+        $ext=pathinfo($filename, PATHINFO_EXTENSION); 
+        if(!in_array($ext,$allowed) ) 
     { 
      $image_err= "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+     echo $image_err;
     }
-    else{ 
-        move_uploaded_file( $_FILES['blog_image'] ['tmp_name'], $path); 
-        // $sth=$link->prepare("insert into blog(blogimg)values(:image) "); 
-        
-        // $sth->execute();     
-    } 
+    else
+        if(move_uploaded_file( $_FILES['blog_image'] ['tmp_name'], $path)){
+            move_uploaded_file( $_FILES['blog_image'] ['tmp_name'], $path);
+            $upload_err="";
+        }
+        else{
+            echo $upload_err;
+        }
+    
 } 
     
 
     // upload image to be done...
 
     // Check input errors before inserting in database
-    if(empty($title_err) && empty($desc_err) && empty($content_err) && empty($image_err)){
+    if(empty($title_err) && empty($desc_err) && empty($content_err) && empty($image_err) && empty($upload_err)){
         
         // Prepare an insert statement
         $sql = "INSERT INTO blog (userid, title, description, blog_content,blogimg) VALUES (:userid ,:title, :description, :blog_content,:image)";
@@ -79,14 +79,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bindParam(":description", $param_desc, PDO::PARAM_STR);
             $stmt->bindParam(":blog_content", $param_content, PDO::PARAM_STR);
             $stmt->bindParam(':image',$image); 
-            // $stmt->bindParam(":blogimg", $param_img, PDO::PARAM_STR);
-            
+            // $stmt->bindParam(":image", $param_img, PDO::PARAM_STR);
+            // $stmt->bindParam(":imgtype", $param_imgtype, PDO::PARAM_STR);
             // Set parameters
             $param_userid=$_SESSION["id"];
             $param_title=$title;
             $param_desc = $desc;
             $param_content=$content;
-            // $param_blogimg=$image;
+            // $param_img=$image;
+            // $param_imgtype=$imgtype['mime'];
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -105,6 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     unset($link);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

@@ -5,6 +5,7 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $firstname= $lastname= $username= $email = $password = $confirm_password= $bio= $image =  "";
 $firstname_err= $lastname_err= $username_err =$email_err = $password_err = $confirm_password_err =$bio_err= $image_err = "";
+$upload_err="not uploaded";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -112,27 +113,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // upload image to be done...
     if(isset($_POST['submit'])) 
     {   
-        $folder ="../upload/"; 
+        $folder ="profileimages/"; 
         $image = $_FILES['prof_image']['name']; 
         $path = $folder . $image ;
         $target_file=$folder.basename($_FILES["prof_image"]["name"]);
         $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
         $allowed=array('jpeg','png' ,'jpg'); 
         $filename=$_FILES['prof_image']['name']; 
-        $ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
-    { 
-     $image_err= "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-    }
-    else{ 
-        move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path); 
-        // $sth=$link->prepare("insert into blog(blogimg)values(:image) "); 
-        
-        // $sth->execute();     
+        $ext=pathinfo($filename, PATHINFO_EXTENSION); 
+        if(!in_array($ext,$allowed) ){ 
+            $image_err= "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+        }
+        else
+            if(move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path)){
+                move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path);
+                $upload_err="";
+            } 
+            else{
+                echo $upload_err;
+            }
         } 
-    } 
 
     // Check input errors before inserting in database
-    if(empty($firstname_err) && empty($lastname_err) && empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($bio_err)&& empty($image_err)){
+    if(empty($firstname_err) && empty($lastname_err) && empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($bio_err)&& empty($image_err)&& empty($upload_err)){
         
         // Prepare an insert statement
         $sql = "INSERT INTO users (firstname, lastname, username, email, pass, bio,pic) VALUES (:firstname, :lastname, :username, :email, :password, :bio, :image)";
@@ -165,6 +168,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close statement
             unset($stmt);
         }
+    }
+    else{
+        echo "something went wrong";
     }
     
     // Close connection
@@ -224,10 +230,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <p>
                             <label>Username:</label>
                             <br/>
-                            <input id="username" type="text" name="username" placeholder="Enter your username">
-                            <?php if(isset($username_err))
-                                    echo $username_err; 
-                                ?>
+                            <input id="username" type="text" name="username" placeholder="Enter your username">          
                         </p>
                         <p>
                             <label>Email:</label>
@@ -314,17 +317,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         </script>
     </body>
-    <footer>
-        <p>
-            <ul>
-                <div class="navbar-header">
-                </div>
-                <li><a href="blogsfeed.php">Blogs</a></li>|
-                <li><a href="savedposts.php">My Saved Blogs</a></li>|
-                <li><a href="aboutus.php">About us</a></li>|
-                <li><a href="adminlogin.php">Admin login</a></li>
-            </ul>
-            &copy; COSC 360 Project 
-        </p>
-    </footer>
+    <?php include_once "footer.php" ?>
 </html>
