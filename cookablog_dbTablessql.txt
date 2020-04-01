@@ -1,0 +1,47 @@
+CREATE TABLE `blog` (
+ `blogid` int(11) NOT NULL AUTO_INCREMENT,
+ `userid` int(11) NOT NULL,
+ `title` varchar(50) NOT NULL,
+ `description` varchar(250) NOT NULL,
+ `blog_content` varchar(5000) NOT NULL,
+ `blogimg` varchar(50) NOT NULL,
+ `created_date` date DEFAULT curdate(),
+ PRIMARY KEY (`blogid`),
+ KEY `blog_ibfk_1` (`userid`),
+ CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4
+comment	CREATE TABLE `comment` (
+ `com_id` int(11) NOT NULL AUTO_INCREMENT,
+ `userid` int(11) NOT NULL,
+ `com_content` varchar(200) NOT NULL,
+ `blogid` int(11) NOT NULL,
+ `datecreated` date DEFAULT current_timestamp(),
+ PRIMARY KEY (`com_id`),
+ KEY `fk` (`userid`),
+ KEY `fk_1` (`blogid`),
+ CONSTRAINT `fk` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ CONSTRAINT `fk_1` FOREIGN KEY (`blogid`) REFERENCES `blog` (`blogid`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4
+savedblogs	CREATE TABLE `savedblogs` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `blog_id` int(11) NOT NULL,
+ `userid` int(11) NOT NULL,
+ PRIMARY KEY (`id`),
+ KEY `blog_id` (`blog_id`),
+ KEY `userid` (`userid`),
+ CONSTRAINT `savedblogs_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blogid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ CONSTRAINT `savedblogs_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+users	CREATE TABLE `users` (
+ `userid` int(11) NOT NULL AUTO_INCREMENT,
+ `firstname` varchar(50) NOT NULL,
+ `lastname` varchar(50) NOT NULL,
+ `username` varchar(50) NOT NULL,
+ `email` varchar(50) NOT NULL,
+ `pass` varchar(255) NOT NULL,
+ `bio` varchar(200) NOT NULL,
+ `pic` varchar(50) NOT NULL,
+ PRIMARY KEY (`userid`),
+ UNIQUE KEY `username` (`username`),
+ UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4
