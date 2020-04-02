@@ -4,11 +4,11 @@
         die("no blog info for that id");
     else{
         $blogid=$_GET['blogid'];
-        $sql="select title,description, blog_content,created_date,firstname,lastname,blogimg from blog,users where blog.userid=users.userid and blogid='$blogid'";
+        $sql="select blog.userid,title,description, blog_content,created_date,firstname,lastname,blogimg from blog,users where blog.userid=users.userid and blogid='$blogid'";
         $q=$link->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
 
-        $commentsql="select com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
+        $commentsql="select comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
         $com=$link->query($commentsql);
         $com->setFetchMode(PDO::FETCH_ASSOC);
     }
@@ -74,7 +74,10 @@
             </p>
             <div>
                 <!-- <label for="author">By</label> -->
-                <p id="author" >By <a href="#"><?php echo $r['firstname']." ".$r['lastname'];  ?></a></p>
+                <p id="author" >By <a href="
+                    <?php 
+                          echo "profile.php?id={$r['userid']}";
+                    ?>"><?php echo $r['firstname']." ".$r['lastname'];  ?></a></p>
                 <p id="date_created" >
                     <time datetime="17-02-2020"> <?php echo "on ".$r['created_date']; ?></time>
                 </p>
@@ -86,7 +89,7 @@
             <?php while($comments=$com->fetch()): 
                   echo  '<div class="comments">
                         <p>
-                            By <a href="#">'.htmlspecialchars($comments['firstname'])." ".htmlspecialchars($comments['lastname']).'</a> on <time datetime="17-02-2020">'.htmlspecialchars($comments['datecreated']).'</time>
+                            By <a href='."profile.php?id={$comments['userid']}".'>'.htmlspecialchars($comments['firstname'])." ".htmlspecialchars($comments['lastname']).'</a> on <time datetime="17-02-2020">'.htmlspecialchars($comments['datecreated']).'</time>
                         </p>
                         <br>
                         <p>

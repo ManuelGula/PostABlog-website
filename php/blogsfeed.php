@@ -1,7 +1,7 @@
 <?php
     require_once "config.php";
 
-    $sql= 'select blogid,title,description, blog_content,created_date,firstname, lastname from blog,users where blog.userid=users.userid';
+    $sql= 'select username,blogid,title,description, blog_content,created_date,firstname, lastname from blog,users where blog.userid=users.userid';
     $q=$link->query($sql);
     $q->setFetchMode(PDO::FETCH_ASSOC);
 ?>
