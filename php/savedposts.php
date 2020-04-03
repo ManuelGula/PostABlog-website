@@ -10,6 +10,8 @@
     $blogquery=$link->query($blogsql);
     $blogquery->setFetchMode(PDO::FETCH_ASSOC);
 
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +64,11 @@
                 
                 }
             }
+            $creatorblog=$blogcheck['blog_id'];
+            $blogcreator="SELECT firstname,lastname from users,blog where users.userid=blog.userid and blogid=$creatorblog ";
+            $creator=$link->query($blogcreator);
+            $creator->setFetchMode(PDO::FETCH_ASSOC);
+            $cname=$creator->fetch();
             
             echo '<div class="blog_container">';
                 
@@ -86,7 +93,7 @@
                                 echo htmlspecialchars($r['description']);
                             echo "</p>";
                             echo '<p class="author&date">';
-                                echo htmlspecialchars($r['firstname'])." ".htmlspecialchars($r['lastname'])." on ".htmlspecialchars($r['created_date']);       
+                                echo htmlspecialchars($cname['firstname'])." ".htmlspecialchars($cname['lastname'])." on ".htmlspecialchars($r['created_date']);       
                             echo "</p>
                         </div>
                     </div>";

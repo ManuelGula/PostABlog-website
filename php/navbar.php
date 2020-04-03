@@ -15,12 +15,17 @@
                 
                 <li class="nav-item"><a class="nav-link" href="blogsfeed.php">Blogs</a></li>
                 <?php if(isset($_SESSION["loggedin"])){  
-                    echo '<li class="nav-item"><a class="nav-link" href="createblog.php">Create Blog</a></li>';}?>
-                  <?php
-                     if(isset($_SESSION["loggedin"])){ 
-                    echo "<li class='nav-item'><a class='nav-link' href=";
+                    echo '<li class="nav-item"><a class="nav-link" href="createblog.php">Create Blog</a></li>';
+                    echo '<li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Profile Options
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                      echo "<a class='dropdown-item' href=";
                           echo "profile.php?id={$_SESSION['id']}";
-                          echo "\">Profile</a></li>";
+                          echo ">Profile</a>";
+                          echo "<a class='dropdown-item' href='edit-profile.php'>Edit Profile</a>";
+                          echo '</li>';
                         }
                     ?> 
                       <li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>

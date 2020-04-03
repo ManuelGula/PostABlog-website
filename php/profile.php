@@ -35,22 +35,20 @@
     <body>
         <?php $details=$accnt->fetch();  ?>
         <div id="info" >
-            <img  src="<?php echo "profileimages/".$details['pic']?>" alt="" class="img-rounded" >
-            <p id="name" ><?php echo $details['firstname']." ".$details['lastname'];?></p>
+            <img src="<?php echo "profileimages/".$details['pic']?>" alt="" class="img-thumbnail" >
             <div id="sub_info" >
+                <p id="name" ><?php echo $details['firstname']." ".$details['lastname'];?></p>
                     <label for="email">Email:</label>
                     <p id="email"><?php echo $details['email']; ?></p>
-                    <form method="POST" action="edit-profile.php">
-                        <button type="submit">Edit Profile</button>
-                    </form>
+            </div>
+            <div id="bio_content">
+                <label >Biography</label>
+                <p id="bio">
+                <?php echo $details['bio']; ?>
+                </p>
             </div>
         </div>
-        <div id="bio_content">
-            <label >Biography</label>
-            <p id="bio">
-            <?php echo $details['bio']; ?>
-            </p>
-        </div>
+        <br>
         <h1 >My Blogs</h1>
         <?php   
             while($r=$blogquery->fetch()):
@@ -92,16 +90,17 @@
                 
                 echo '<div class="blog_container">';
                     
-                    if(isset($_SESSION["loggedin"])){
+                    if(isset($_SESSION["loggedin"]) && ($userid===$_SESSION['id'])&& $_SESSION["loggedin"] === true){
                         if(!isset($_REQUEST['removebtn'.$r['blogid']])){
 
-                        echo '<form id="rmvefrm" name="rmvefrm" method="POST" action="">';
-                            echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'"> Delete </button>';
-                            echo "</form>";}
-                    else{
-                        echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'" disabled> Deleted </button>';
-                        // echo "Deleted";
-                        header("Refresh:1");
+                            echo '<form id="rmvefrm" name="rmvefrm" method="POST" action="">';
+                                echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'"> Delete </button>';
+                                echo "</form>";
+                            }
+                        else{
+                            echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'" disabled> Deleted </button>';
+                            // echo "Deleted";
+                            header("Refresh:1");
                     }}
                     //if(isset($_SESSION["loggedin"])){
                         //if(!isset($_REQUEST['removebtn'.$r['blogid']])){
@@ -128,7 +127,7 @@
         <?php endwhile;?>
         <?php 
             if(!isset($blogcheck['blogid'])){
-                if(isset($_SESSION["loggedin"])){
+                if(isset($_SESSION["loggedin"])&&isset($_SESSION['id'])===$userid ){
                     echo "<h1>You haven't created a blog yet.</h1>";
                 }else{
                     echo "<h1>This user has no posts yet.</h1>";

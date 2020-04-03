@@ -31,34 +31,46 @@ a:active{
 #info{
     margin: 2% 10% 5% 15%;
 }
-body div img{
-    height: 10em; 
+
+#info img{
+    margin-top: 1.5em;
+    height: 20em; 
+    width: 15em;
     float: left; 
-    padding:1em;
+    /* padding:4em; */
 }
+
 #name{
-    font-size: 3em;
+    font-size: 2.5em;
 }
 #sub_info{
-    margin-top:-1em;
+    margin-left:11.5em ;
+    margin-top:1em;
     font-size: 1.5em;
-}
-#sub_info form button{
-    font-size: 0.5em;
 }
 
 #email{
     display: inline;
 }
 div[id=bio_content]{
-    width: 60%;
-    margin: 0 10% 5% 15%;
+    width: 70%;
+    margin: 0 10% 5% 14;
+    
+    /* border: solid thin; */
 }
 div[id=bio_content] label{
+    margin-left: 1.5em;
     font-size: 1.5em; 
-    margin-left: 35%;
+    text-align: left;
+    
+}
+#bio{
+    width: 90%;
+    margin-left: 17.3em;
+    /* text-align: center; */
 }
 h1{
+    clear: both;
     text-align: center;
 }
 #remove_btn{
@@ -118,7 +130,7 @@ footer li{
 }
 body{
     background-color: black;
-    padding-bottom:2em ;
+    padding-bottom:3em ;
 }
 #bloglink{
     text-decoration: none;

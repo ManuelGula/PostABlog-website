@@ -4,9 +4,9 @@ require_once "config.php";
  
 session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: blogsfeed.php");
-    exit;
-}
+        header("location: blogsfeed.php");
+        exit;
+    }   
 // Define variables and initialize with empty values
 $firstname= $lastname= $username= $email = $password = $confirm_password= $bio= $image =  "";
 $firstname_err= $lastname_err= $username_err =$email_err = $password_err = $confirm_password_err =$bio_err= $image_err = "";
@@ -61,8 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //validate email
     if(empty(trim($_POST["email"]))){
-        $username_err = "Please enter a username.";
-    } else{
+        $email_err = "Please enter a email.";
+     } else{
         // Prepare a select statement
         $sql = "SELECT userid FROM users WHERE email = :email";
         

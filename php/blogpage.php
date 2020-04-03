@@ -104,7 +104,7 @@
             if(isset($_SESSION["loggedin"])){
             echo '<form id="makeacomment-container" name="comment" method="POST" action="" onsubmit="return validateform()">
                     <fieldset>
-                        <p class="comments_section">Leave a comment</p>
+                        <p class="makecomm">Leave a comment</p>
                         <textarea name="make_a_comment" id="make_a_comment"  rows="2" placeholder="Say something about this blog"></textarea>
                         <br/>
                         <button id= "submit-comment" name="submit-comment" type="submit">Submit</button>
