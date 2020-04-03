@@ -1,14 +1,15 @@
 <?php
     require_once "config.php";
+    session_start();
     if(!isset($_GET['blogid']))
         die("no blog info for that id");
     else{
         $blogid=$_GET['blogid'];
-        $sql="select blog.userid,title,description, blog_content,created_date,firstname,lastname,blogimg from blog,users where blog.userid=users.userid and blogid='$blogid'";
+        $sql="SELECT blog.userid,title,description, blog_content,created_date,firstname,lastname,blogimg from blog,users where blog.userid=users.userid and blogid='$blogid'";
         $q=$link->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
 
-        $commentsql="select comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
+        $commentsql="SELECT comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
         $com=$link->query($commentsql);
         $com->setFetchMode(PDO::FETCH_ASSOC);
     }
@@ -52,7 +53,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>BlogPage</title>
         <link rel="stylesheet" href="../css/blogpage.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

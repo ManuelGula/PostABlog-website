@@ -44,11 +44,11 @@ fieldset p textarea{
 }
 footer{
     position: absolute; 
-    top:53em;
+    top:45em;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
-    height: 4em;
+    height: 3em;
 }
 footer.navbar-header {
     display: inline;

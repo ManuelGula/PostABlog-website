@@ -1,16 +1,16 @@
-.navbar  {
+header nav  {
     background-color: #00a287 ;
     display: inline;
 }
-.navbar-header{
-    display: inline;
-    font-weight: bold; 
+.navbar{
+    /* display: inline; */
+    /* font-weight: bold;  */
 }
-nav div li{
-    display: inline;
+nav  li{
+    /* display: inline; */
 }
 nav div input{
-    width:30em ; 
+    /* width:20em ;  */
     text-align: center;
 }
 
@@ -30,7 +30,7 @@ a:active{
     text-decoration: none;
 }
 h1{
-    margin-left:40%;
+    text-align: center;
 }
 body div{
     margin:2% 5% 10% 5%;
@@ -50,11 +50,11 @@ body div div{
     margin-top: 5%; 
     margin-right: 5%;
 }
-#idauthor{
+#author{
     font-style: italic;
     display: inline;
 }
-#idcomments-container{
+#comments-container{
     margin:2% 5% 2% 5%;
 }
 .comments_section{
@@ -63,7 +63,7 @@ body div div{
 .comments{
     border-top: solid thin;
 }
-form[name="makeacomment"]{
+form[id="makeacomment-container"]{
     margin:2% 5% 2% 5% ;
     border-top: solid thin;
 }
@@ -85,10 +85,11 @@ footer{
 
 
 footer p {
-display: inline;
- }
+    display: inline;
+}
 footer ul{
     float: right; 
+    width: 26em;
     margin-right: 1em;
 }
 footer li{

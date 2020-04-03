@@ -1,9 +1,12 @@
 <?php
     require_once "config.php";
-
-    $sql= 'select username,blogid,title,description, blog_content,created_date,firstname, lastname from blog,users where blog.userid=users.userid';
+    session_start();
+    
+    $sql= 'SELECT username,blogid,title,description, blog_content,created_date,firstname, lastname from blog,users where blog.userid=users.userid';
     $q=$link->query($sql);
     $q->setFetchMode(PDO::FETCH_ASSOC);
+    $save_err="";
+    $saved_err="Already saved blog";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +24,57 @@
     <?php  include_once "navbar.php"; ?>
     <body >
         <h1>Browse Blogs</h1>
-        
         <?php while($r=$q->fetch()): 
-        echo '<div class="blog_container" >';
+        $savedblogid=$r["blogid"];
+        $savecheck= "SELECT blog_id from savedblogs where blog_id='$savedblogid'";
+        $svck=$link->query($savecheck);
+        $svck->setFetchMode(PDO::FETCH_ASSOC);
+        $blogcheck=$svck->fetch();
+        if(!isset($blogcheck['blog_id'])){
             if(isset($_SESSION["loggedin"])){
-                echo '<button id="save_btn"> Save </button>';
+                if(isset($_REQUEST['saveblog'.$r['blogid']])){
+                    // echo "running";
+                    if(empty($save_err)){
+                        // echo "running query";
+                        $saveqry="INSERT INTO savedblogs (userid,blog_id) VALUES(:userid,:blogid)";
+                
+                        if($stmt = $link->prepare($saveqry)){
+                            // Bind variables to the prepared statement as parameters
+                            $stmt->bindParam(':userid',$_SESSION["id"]); 
+                            $stmt->bindParam(':blogid',$r['blogid']); 
+                            // echo "bind successful";
+                            if($stmt->execute()){
+                                // echo "saved";
+                            } else{
+                                
+                                // echo $save_err;
+                            }
+                    
+                            // Close statement
+                            unset($stmt);
+                        }
+                    }
+                }
+                
+                    // echo "there was an error";
+            }
         }
+        
+        echo '<div class="blog_container" >';
+        
+            if(isset($_SESSION["loggedin"]) ){
+                if(isset($_REQUEST['saveblog'.$r['blogid']])){
+                    echo '<button id="save_btn" name="'."saveblog".$r['blogid'].'"disabled> Saved </button>';
+                }
+                else{
+                    echo '<form id="savefrm" name="savefrm" method="POST" action="">';
+                        echo '<button id="save_btn" type="submit" name="'."saveblog".$r['blogid'].'"> Save </button>';
+                        echo "</form>";
+                    }
+                }
+                if(isset($blogcheck['blog_id']) && isset($_REQUEST['saveblog'.$r['blogid']])){
+                    echo "<p>".$saved_err."</p>";
+                }
             echo "<a id='bloglink' href='blogpage.php?blogid={$r['blogid']}'>";
             echo '<div class="mysavedblogs">';
                     echo '<div class="blog">';
@@ -41,7 +89,8 @@
                     echo "</div>";
                     echo "</div>";
                     echo "</a>";
-             echo "</div>";
+        echo "</div>";
+        
                         ?>
         <?php endwhile;?>
     </body>

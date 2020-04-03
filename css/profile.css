@@ -43,6 +43,10 @@ body div img{
     margin-top:-1em;
     font-size: 1.5em;
 }
+#sub_info form button{
+    font-size: 0.5em;
+}
+
 #email{
     display: inline;
 }
@@ -69,6 +73,7 @@ h1{
     width: 60%;
     margin-left: 15%;
     margin-bottom: 2em;
+    /* padding-bottom: 3em; */
 }
 #idbloglink{
     text-decoration: none;
@@ -81,7 +86,7 @@ h1{
     margin-left: 2%;
     font-weight: bold;
 }
-#iddescription{
+#description{
     padding:1% 2% 0 2%;
 }
 p[class="author&date"]{
@@ -90,8 +95,8 @@ p[class="author&date"]{
     padding-right: 3%;
 }
 footer{
-    position: absolute; 
-    top: auto;
+    position: fixed; 
+    bottom:0;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
@@ -113,4 +118,8 @@ footer li{
 }
 body{
     background-color: black;
+    padding-bottom:2em ;
+}
+#bloglink{
+    text-decoration: none;
 }

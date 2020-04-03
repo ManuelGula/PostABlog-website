@@ -33,12 +33,12 @@ a:active{
     text-decoration: none;
 }
 footer{
-    position: absolute; 
-    top: auto;
+    position: fixed; 
+    bottom: 0;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
-    height: 4em;
+    height: 3em;
 }
 footer.navbar-header {
     display: inline;
@@ -85,4 +85,7 @@ p[class="author&date"]{
     width: 60%;
     margin-left: 15%;
     margin-bottom: 2em;
+}
+body{
+    padding-bottom: 2em;
 }

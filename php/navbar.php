@@ -1,8 +1,3 @@
-<?php if(!isset($_SESSION["loggedin"])) {
-    session_start(); }
-    
-    
-    ?>
 <header>
         <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="<?php 
@@ -21,14 +16,13 @@
                 <li class="nav-item"><a class="nav-link" href="blogsfeed.php">Blogs</a></li>
                 <?php if(isset($_SESSION["loggedin"])){  
                     echo '<li class="nav-item"><a class="nav-link" href="createblog.php">Create Blog</a></li>';}?>
-
-                    <li class='nav-item'><a class='nav-link' href= "
-                    <?php if(isset($_SESSION["loggedin"])){ 
-                          echo "profile.php?id={$_SESSION['id']}";}
-                        else{
-                          echo "signin.php";
+                  <?php
+                     if(isset($_SESSION["loggedin"])){ 
+                    echo "<li class='nav-item'><a class='nav-link' href=";
+                          echo "profile.php?id={$_SESSION['id']}";
+                          echo "\">Profile</a></li>";
                         }
-                    ?>" >Profile</a></li>
+                    ?> 
                       <li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>
                       <li class="nav-item"><a class="nav-link" href="aboutus.php">About us</a></li>
                       <form class="form-inline" method="" action="">
