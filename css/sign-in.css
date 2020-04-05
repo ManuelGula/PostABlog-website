@@ -48,9 +48,6 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
-    display: inline;
-}
 
 footer p {
 display: inline;

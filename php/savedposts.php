@@ -1,12 +1,18 @@
 <?php
     session_start();
+    if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] === true){
+        $_SESSION = array();
+        session_destroy();
+        header("location: signin.php");
+    }
+
     if(!isset($_SESSION["loggedin"]) && !$_SESSION["loggedin"] === true){
         header("location: signin.php");
         exit;
     }
     require_once "config.php";
     $userid=$_SESSION['id'];
-    $blogsql="SELECT savedblogs.blog_id,title,description,created_date,firstname, lastname from savedblogs,blog,users where savedblogs.blog_id=blog.blogid and savedblogs.userid=users.userid and savedblogs.userid=$userid";
+    $blogsql="SELECT savedblogs.blog_id,title,description,created_date,firstname, lastname from savedblogs,blog,users where savedblogs.blog_id=blog.blogid and savedblogs.userid=users.userid and savedblogs.userid=$userid ORDER BY created_date DESC";
     $blogquery=$link->query($blogsql);
     $blogquery->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -88,11 +94,11 @@
                     //}}
                     echo '<div class="mysavedblogs" >';
                         echo '<div class="blog">';
-                            echo '<label class= "title"> '.htmlspecialchars($r['title']).'</label>';
+                            echo '<label class= "title">Title: '.htmlspecialchars($r['title']).'</label>';
                             echo '<p id="description">';
                                 echo htmlspecialchars($r['description']);
                             echo "</p>";
-                            echo '<p class="author&date">';
+                            echo '<p class="author&date">By: ';
                                 echo htmlspecialchars($cname['firstname'])." ".htmlspecialchars($cname['lastname'])." on ".htmlspecialchars($r['created_date']);       
                             echo "</p>
                         </div>

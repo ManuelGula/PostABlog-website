@@ -37,10 +37,12 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
-    display: inline;
-}
+
 body h1{
+    text-align: center;
+
+}
+body h2{
     text-align: center;
 
 }
@@ -54,9 +56,17 @@ footer ul{
 footer li{
     display: inline;
 }
-#save_btn{
+#action_btn{
     position: relative;
     top: 5em; 
+    left: 55em;  
+    margin-left: 0em; 
+    color: black; 
+    width: 10%;
+}
+#delete_btn{
+    position: relative;
+    top: 6em; 
     left: 55em;  
     margin-left: 0em; 
     color: black; 
@@ -87,5 +97,5 @@ p[class="author&date"]{
     margin-bottom: 2em;
 }
 body{
-    padding-bottom:2em ;
+    padding-bottom:3em ;
 }

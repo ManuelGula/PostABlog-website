@@ -115,6 +115,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/createblog.css">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <script type="text/javascript" src="../js/createblog.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -125,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
         <h1>Create a blog</h1>
         <div>
-            <form id="editblog" name="createblog" enctype="multipart/form-data" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateform()">
+            <form id="createblog" name="createblog" enctype="multipart/form-data" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateform()">
                 <fieldset>
                         <p>
                             <label>Title:</label>
@@ -153,30 +155,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </fieldset>
             </form>
         </div>
-        <script>
-            function validateform(){
-                var title=document.forms["editblog"]["title"].value;
-                var description=document.getElementById("desc").value;
-                var content=document.getElementById("content").value;
-                var image=document.forms["editblog"]["blog_image"].value;
-                if(title==""||title==null){
-                    alert("Enter a title");
-                    return false;
-                }
-                if(description==""||description==null){
-                    alert("Enter a description");
-                    return false;
-                }
-                if(content==""||content==null){
-                    alert("Fill in your content.");
-                    return false;
-                }
-                if(image==""|| image==null){
-                    alert("you must upload an image");
-                    return false;
-                }
-            }
-        </script>
     </body>
     <?php  include_once "footer.php"; ?>
 </html>

@@ -26,18 +26,23 @@
                           echo ">Profile</a>";
                           echo "<a class='dropdown-item' href='edit-profile.php'>Edit Profile</a>";
                           echo '</li>';
+                          echo '<li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>';
                         }
+
+                      if(isset($_SESSION["isadmin"])){
+                        echo '<li class="nav-item"><a class="nav-link" href="adminsearch.php">Admin Search</a></li>';
+                        echo '<li class="nav-item"><a class="nav-link" href="users.php">Manage Users</a></li>';
+                      }
                     ?> 
-                      <li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>
                       <li class="nav-item"><a class="nav-link" href="aboutus.php">About us</a></li>
-                      <form class="form-inline" method="" action="">
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search for a title" aria-label="Search for a title">
+                      <form class="form-inline" method="POST" action="search.php">
+                          <input class="form-control mr-sm-2" name="searchinput" type="search" placeholder="Search for a title" aria-label="Search for a title">
                           <button class="btn btn-danger navbar-btn" type="submit">Search</button>
                       </form>
                 <?php 
                      
-                        if(isset($_SESSION["loggedin"])){
-                        echo "<li class='nav-item'><a class='nav-link' href='logout.php'>logout</a></li>";
+                        if(isset($_SESSION["loggedin"])||isset($_SESSION["isadmin"])){
+                        echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
                     }
                     else{
                         echo "<li class='nav-item'><a class='nav-link' href='signin.php'>Sign in</a></li>";

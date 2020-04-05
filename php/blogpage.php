@@ -12,6 +12,9 @@
         $commentsql="SELECT comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' ";
         $com=$link->query($commentsql);
         $com->setFetchMode(PDO::FETCH_ASSOC);
+
+        $commCount=$link->prepare($commentsql);
+        $commCount->execute();
     }
     // session_start();
     if(isset($_SESSION["loggedin"])){
@@ -55,6 +58,8 @@
         <meta charset="utf-8">
         <title>BlogPage</title>
         <link rel="stylesheet" href="../css/blogpage.css">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <script type="text/javascript" src="../js/comment.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -87,7 +92,12 @@
         <br>
         <section id="comments-container">
             <p class="comments_section" >Comments</p>
-            <?php while($comments=$com->fetch()): 
+            <?php
+                if($commCount->rowCount()==0){
+                    echo "<em>No comments on this post yet</em>";
+                }
+                
+                while($comments=$com->fetch()): 
                   echo  '<div class="comments">
                         <p>
                             By <a href='."profile.php?id={$comments['userid']}".'>'.htmlspecialchars($comments['firstname'])." ".htmlspecialchars($comments['lastname']).'</a> on <time datetime="17-02-2020">'.htmlspecialchars($comments['datecreated']).'</time>
@@ -102,7 +112,7 @@
         </section>
         <?php
             if(isset($_SESSION["loggedin"])){
-            echo '<form id="makeacomment-container" name="comment" method="POST" action="" onsubmit="return validateform()">
+            echo '<form id="makeacomment-container" name="comment" method="POST" action="">
                     <fieldset>
                         <p class="makecomm">Leave a comment</p>
                         <textarea name="make_a_comment" id="make_a_comment"  rows="2" placeholder="Say something about this blog"></textarea>
@@ -113,14 +123,5 @@
             }
         ?>
     </body>
-        <script>
-            function validateform(){
-                var comment=document.getElementById("make_a_comment").value;
-                if(comment==""||comment==null){
-                    alert("Enter a description");
-                    return false;
-                }
-            }
-        </script>
         <?php include_once "footer.php" ?>
 </html>

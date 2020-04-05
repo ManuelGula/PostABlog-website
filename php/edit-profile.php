@@ -165,6 +165,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../css/editprofile.css">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <script type="text/javascript" src="../js/editprofile.js"></script>
         <title>Edit Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -177,7 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <?php $details=$accnt->fetch();  ?>
         <h1>Edit Profile</h1>
         <div >
-            <form name="editprofile" enctype="multipart/form-data" method="POST" action="" onsubmit="return validateform()">
+            <form name="editprofile" id="editprofile" enctype="multipart/form-data" method="POST" action="" >
                 <fieldset >
                         <div>
                             <p>
@@ -214,40 +216,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </fieldset>
             </form>
         </div>
-        <script>
-            function validateform(){
-                var fname=document.forms["editprofile"]["fname"].value;
-                var lname=document.forms["editprofile"]["lname"].value;
-                // var username=document.forms["editprofile"]["username"].value;
-                var email=document.forms["editprofile"]["email"].value;
-                var bio=document.getElementById("bio").value;
-                var image=document.forms["editblog"]["prof_image"].value;
-                if (fname=="" || lname=="" ||  email==""){
-                    alert("all fields must be filled")
-                    return false;
-                }
-                else if(fname=="" ){
-                    alert("You must enter a first name!");
-                    return false;
-                }
-                else if(lname=="" ){
-                    alert("You must enter a  last name!");
-                    return false;
-                }
-                else if(email==""){
-                    alert("You must enter an email");
-                    return false;
-                }
-                else if(bio==""){
-                    alert("You must enter an bio");
-                    return false;
-                }
-                else if(image==""){
-                    alert("you must upload an image");
-                    return false;
-                }
-            }
-        </script>
     </body>
     <footer >
         <p >
