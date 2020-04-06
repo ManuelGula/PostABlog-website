@@ -51,6 +51,16 @@
             $count=$stmt->rowCount()==0;
             $limit=$stmt->rowCount();
         }
+        if($srchcat=="title"){
+            $sql="SELECT users.userid,firstname,lastname,email,title from users,blog where title='$search'";
+            $q=$link->query($sql);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+
+            $stmt=$link->prepare($sql);
+            $stmt->execute();
+            $count=$stmt->rowCount()==0;
+            $limit=$stmt->rowCount();
+        }
 
     }
 ?>
@@ -86,6 +96,7 @@
                   <option value="firstname">Firstname</option>
                   <option value="lastname">Lastname</option>
                   <option value="email">Email</option>
+                  <option value="email">Title</option>
                 </select>
               </div>
                 
