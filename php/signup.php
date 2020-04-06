@@ -197,26 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/android-chrome-512x512.png">
     </head>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="landing-page.php">CookABlog</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="blogsfeed.php">Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="savedposts.php">My Saved Blogs</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.php">About us</a></li>
-                <form class="form-inline" method="" action="">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for a title" aria-label="Search for a title">
-                    <button class="btn btn-danger navbar-btn" type="submit">Search</button>
-                </form>
-                <li class="nav-item"><a class="nav-link" href="signin.php">Sign in</a></li>
-              </ul>
-            </div>
-        </nav>
-    </header>
+    <?php include_once "navbar.php"; ?>
     <body>
         <h1>Sign Up</h1>
         <div >
@@ -274,55 +255,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </fieldset>
             </form>
         </div>
-        <!-- <script>
-            function validateform(){
-                var fname=document.forms["signup"]["firstname"].value;
-                var lname=document.forms["signup"]["lastname"].value;
-                var username=document.forms["signup"]["username"].value;
-                var email=document.forms["signup"]["email"].value;
-                var bio=document.getElementById("bio").value;
-                var pass=document.forms["signup"]["password"].value;
-                var repass=document.forms["signup"]["retype-password"].value;
-                var image=document.forms["signup"]["prof_image"].value;
-
-                if(fname==""||fname==null){
-                    alert("You must enter a first name!");
-                    return false;
-                }
-                if(lname==""|| lname==null){
-                    alert("You must enter a  last name!");
-                    return false;
-                }
-                if(username==""|| username==null){
-                    alert("You must enter your username");
-                    return false;
-                }
-                if(email==""|| email==null){
-                    alert("You must enter an email");
-                    return false;
-                }
-                if(pass==""|| pass==null){
-                    alert("You must enter an password");
-                    return false;
-                }
-                if(repass==""|| repass==null){
-                    alert("retype password");
-                    return false;
-                }
-                if(bio==""||bio==null){
-                    alert("You must enter an bio");
-                    return false;
-                }
-                if(image==""|| image==null){
-                    alert("you must upload an image");
-                    return false;
-                }
-                if(pass!==repass){
-                    alert("passwords must match")
-                    return false;
-                }
-            }
-        </script> -->
     </body>
     <?php include_once "footer.php" ?>
 </html>

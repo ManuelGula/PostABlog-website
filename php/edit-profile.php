@@ -217,17 +217,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </form>
         </div>
     </body>
-    <footer >
-        <p >
-            <ul>
-                <div class="navbar-header" >
-                <li><a href="blogsfeed.html">Blogs</a></li>|
-                <li><a href="savedposts.html">My Saved Blogs</a></li>|
-                <li><a href="aboutus.html">About us</a></li>|
-                <li><a href="adminlogin.html">Admin login</a></li>
-                </div>
-            </ul>
-            &copy; COSC 360 Project 
-        </p>
-    </footer>
+    <?php include_once "footer.php"; ?>
 </html>
