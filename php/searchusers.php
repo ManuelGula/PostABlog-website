@@ -96,7 +96,7 @@
                   <option value="firstname">Firstname</option>
                   <option value="lastname">Lastname</option>
                   <option value="email">Email</option>
-                  <option value="email">Title</option>
+                  <option value="title">Title</option>
                 </select>
               </div>
                 
