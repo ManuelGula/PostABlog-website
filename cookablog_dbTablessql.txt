@@ -1,4 +1,10 @@
-CREATE TABLE `blog` (
+CREATE TABLE `admin` (
+ `adminid` int(11) NOT NULL,
+ `username` varchar(50) NOT NULL DEFAULT 'admin',
+ `password` varchar(255) CHARACTER SET utf32 NOT NULL DEFAULT 'admin',
+ PRIMARY KEY (`adminid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+blog	CREATE TABLE `blog` (
  `blogid` int(11) NOT NULL AUTO_INCREMENT,
  `userid` int(11) NOT NULL,
  `title` varchar(50) NOT NULL,
@@ -9,7 +15,7 @@ CREATE TABLE `blog` (
  PRIMARY KEY (`blogid`),
  KEY `blog_ibfk_1` (`userid`),
  CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4
 comment	CREATE TABLE `comment` (
  `com_id` int(11) NOT NULL AUTO_INCREMENT,
  `userid` int(11) NOT NULL,
@@ -21,17 +27,17 @@ comment	CREATE TABLE `comment` (
  KEY `fk_1` (`blogid`),
  CONSTRAINT `fk` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE NO ACTION,
  CONSTRAINT `fk_1` FOREIGN KEY (`blogid`) REFERENCES `blog` (`blogid`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4
 savedblogs	CREATE TABLE `savedblogs` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `blog_id` int(11) NOT NULL,
  `userid` int(11) NOT NULL,
  PRIMARY KEY (`id`),
- KEY `blog_id` (`blog_id`),
- KEY `userid` (`userid`),
- CONSTRAINT `savedblogs_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blogid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
- CONSTRAINT `savedblogs_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+ KEY `savedblogs_ibfk_2` (`userid`),
+ KEY `blog_id` (`blog_id`) USING BTREE,
+ CONSTRAINT `savedblogs_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`blogid`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ CONSTRAINT `savedblogs_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4
 users	CREATE TABLE `users` (
  `userid` int(11) NOT NULL AUTO_INCREMENT,
  `firstname` varchar(50) NOT NULL,
@@ -39,9 +45,9 @@ users	CREATE TABLE `users` (
  `username` varchar(50) NOT NULL,
  `email` varchar(50) NOT NULL,
  `pass` varchar(255) NOT NULL,
- `bio` varchar(200) NOT NULL,
+ `bio` varchar(500) NOT NULL,
  `pic` varchar(50) NOT NULL,
  PRIMARY KEY (`userid`),
  UNIQUE KEY `username` (`username`),
  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4
