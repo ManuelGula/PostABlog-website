@@ -31,7 +31,8 @@ h1{
 }
 body div img{
     float: left; 
-    height:200px ;
+    height: 20em; 
+    width: 15em;
     margin-right:1%;
 }
 body div p{

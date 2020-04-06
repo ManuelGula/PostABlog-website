@@ -6,7 +6,7 @@
             }
             else
               echo "landing-page.php";
-              ?>">CookABlog</a>
+              ?>"><img src="../images/favicon_io/android-chrome-512x512.png" width="30" height="30" class="d-inline-block align-top" alt="">CookABlog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,8 +30,8 @@
                         }
 
                       if(isset($_SESSION["isadmin"])){
-                        echo '<li class="nav-item"><a class="nav-link" href="adminsearch.php">Admin Search</a></li>';
-                        echo '<li class="nav-item"><a class="nav-link" href="users.php">Manage Users</a></li>';
+                        echo '<li class="nav-item"><a class="nav-link" href="searchusers.php">Admin Search</a></li>';
+                        // echo '<li class="nav-item"><a class="nav-link" href="users.php">Manage Users</a></li>';
                       }
                     ?> 
                       <li class="nav-item"><a class="nav-link" href="aboutus.php">About us</a></li>

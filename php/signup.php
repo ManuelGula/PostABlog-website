@@ -3,10 +3,10 @@
 require_once "config.php";
  
 session_start();
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        header("location: blogsfeed.php");
-        exit;
-    }   
+if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) ||(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] === true) ){
+    header("location: blogsfeed.php");
+    exit;
+} 
 // Define variables and initialize with empty values
 $firstname= $lastname= $username= $email = $password = $confirm_password= $bio= $image =  "";
 $firstname_err= $lastname_err= $username_err =$email_err = $password_err = $confirm_password_err =$bio_err= $image_err = "";

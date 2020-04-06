@@ -124,7 +124,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path)){
                     move_uploaded_file( $_FILES['prof_image'] ['tmp_name'], $path);
                     $upload_err="";
-                    echo "uploaded";
+                    // echo "uploaded";
                 } 
                 else{
                     echo $upload_err;
@@ -176,7 +176,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </head>
     <?php include_once "navbar.php" ?>
     <body>
-    <?php $details=$accnt->fetch();  ?>
+    
         <h1>Edit Profile</h1>
         <div >
             <form name="editprofile" id="editprofile" enctype="multipart/form-data" method="POST" action="" >

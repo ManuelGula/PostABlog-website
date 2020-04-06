@@ -7,6 +7,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $_SESSION = array();
     session_destroy();
 }
+if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] === true){
+    header("location: blogsfeed.php");
+    exit;
+}
  
 // Include config file
 require_once "config.php";

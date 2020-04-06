@@ -1,4 +1,14 @@
-
+<?php
+    session_start();
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        header("location: blogsfeed.php");
+        exit;
+    }
+    if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] === true){
+        header("location: blogsfeed.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

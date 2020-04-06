@@ -14,6 +14,7 @@ window.onload=function(){
                 var title=document.forms["editblog"]["title"].value;
                 var description=document.getElementById("description").value;
                 var content=document.getElementById("content").value;
+                var image=document.forms["editblog"]["blog_image"].value;
                 if(title=="" && description=="" && content=="" ){
                     alert("All fields must be filled to confirm edit");
                     e.preventDefault();
@@ -29,7 +30,12 @@ window.onload=function(){
                 if(content==""||content==null){
                     alert("Fill in your content.");
                     e.preventDefault();
-                }else
+                }else 
+                if(image=="" || image==null){
+                    alert("you must upload an image again");
+                    return false;
+                }
+                else
                 if(content.length<200){
                     alert("Your blog is too short");
                     e.preventDefault();

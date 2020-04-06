@@ -48,7 +48,6 @@
                         if(empty($delete_err)){
                             // echo "running query";
                             $dltqry='DELETE FROM savedblogs where userid=:userid and blog_id=:blog_id';
-                    
                             if($stmt = $link->prepare($dltqry)){
                                 // Bind variables to the prepared statement as parameters
                                 $stmt->bindParam(':userid',$_SESSION['id']); 
@@ -67,7 +66,6 @@
                         }
                     }
                         // echo "there was an error";
-                
                 }
             }
             $creatorblog=$blogcheck['blog_id'];

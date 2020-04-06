@@ -39,13 +39,17 @@ fieldset p textarea{
 }
 footer{
     position: absolute; 
-    top: 100%;
+    top: 155%;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
     height: 4em;
 }
+form[name="editblog"] fieldset img{
+    width: 20em;
+    height: 30em;
 
+}
 
 footer p {
 display: inline;
@@ -56,4 +60,7 @@ footer ul{
 }
 footer li{
     display: inline;
+}
+body{
+    padding-bottom: 2em;
 }

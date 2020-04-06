@@ -102,11 +102,11 @@
                 echo '<div class="mysavedblogs">';
                         echo '<div class="blog">';
                             
-                            echo '<label class= "title" >'.htmlspecialchars($r['title']).'</label>';
+                            echo '<label class= "title" >Title: '.htmlspecialchars($r['title']).'</label>';
                             echo '<p id="description" >';
                                 echo htmlspecialchars($r['description']) ;
                             echo "</p>";
-                            echo '<p class="author&date">';
+                            echo '<p class="author&date">By: ';
                                 echo htmlspecialchars($r['firstname'])." ".htmlspecialchars($r['lastname'])." on ".htmlspecialchars($r['created_date']);       
                             echo  '</p>';
                         echo "</div>";
