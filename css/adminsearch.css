@@ -9,10 +9,6 @@
 nav div li{
     display: inline;
 }
-body h1{
-    text-align: center;
-
-}
 nav div input{
     width:30em ; 
     text-align: center;
@@ -24,7 +20,7 @@ a:link {
 }
 a:visited{
     font-weight: bold;
-    color: #212b07;
+    color: #31493b;
     text-decoration: none;
 }
 a:active{
@@ -32,6 +28,7 @@ a:active{
     color: bisque;
     text-decoration: none;
 }
+
 footer{
     position: fixed; 
     bottom: 0;
@@ -40,10 +37,15 @@ footer{
     margin-bottom: 0;
     height: 4em;
 }
-footer.navbar-header {
-    display: inline;
-}
 
+body h1{
+    text-align: center;
+
+}
+body h2{
+    text-align: center;
+
+}
 footer p {
 display: inline;
  }
@@ -54,9 +56,17 @@ footer ul{
 footer li{
     display: inline;
 }
-#remove_btn{
+#action_btn{
     position: relative;
     top: 5em; 
+    left: 55em;  
+    margin-left: 0em; 
+    color: black; 
+    width: 10%;
+}
+#delete_btn{
+    position: relative;
+    top: 6em; 
     left: 55em;  
     margin-left: 0em; 
     color: black; 
@@ -65,7 +75,7 @@ footer li{
 #bloglink{
     text-decoration: none;
 }
-body div div[class=mysavedblogs]{
+.mysavedblogs{
     width: inherit;
     border: solid thin black;
 }
@@ -82,10 +92,15 @@ p[class="author&date"]{
     padding-right: 3%;
 }
 .blog_container{
-    width: 60%;
-    margin-left: 15%;
+    width: 40%;
+    margin-left: 25%;
     margin-bottom: 2em;
 }
 body{
-    padding-bottom: 2em;
+    padding-bottom:3em ;
+}
+#for{
+
+    margin-left: 40%;
+    font-weight: bold;
 }

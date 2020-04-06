@@ -1,16 +1,10 @@
-.navbar  {
+header nav  {
     background-color: #00a287 ;
     display: inline;
 }
-.navbar-header{
-    display: inline;
-    font-weight: bold; 
-}
-nav div li{
-    display: inline;
-}
+
 nav div input{
-    width:30em ; 
+    /* width:20em ;  */
     text-align: center;
 }
 
@@ -30,14 +24,15 @@ a:active{
     text-decoration: none;
 }
 h1{
-    margin-left:40%;
+    text-align: center;
 }
-body div{
+#blog-container{
     margin:2% 5% 10% 5%;
 }
 body div img{
     float: left; 
-    height:200px ;
+    height: 20em; 
+    width: 15em;
     margin-right:1%;
 }
 body div p{
@@ -50,45 +45,62 @@ body div div{
     margin-top: 5%; 
     margin-right: 5%;
 }
-#idauthor{
+#author{
     font-style: italic;
     display: inline;
 }
-#idcomments-container{
-    margin:2% 5% 2% 5%;
+#blog-container{
+    width:80%;
+    margin-left: 10%;
+}
+#comments-container{
+    margin:0.5% 5% 2% 9%;
+    width: 50%;
 }
 .comments_section{
     font-size: 1.5em;
 }
 .comments{
     border-top: solid thin;
+    margin-bottom: 2em;
 }
-form[name="makeacomment"]{
-    margin:2% 5% 2% 5% ;
+.comments p{
+    font-size: 15px;
+
+}
+form[id="makeacomment-container"]{
+    margin:2% 9% 2% 9% ;
     border-top: solid thin;
+    width:50%;
 }
+
 fieldset p{
+
     font-size: 1.5em;
 }
 fieldset textarea{
-    width: 40%; 
+    width: 80%; 
     height: 5em;
 }
 footer{
-    position: absolute; 
-    top: auto;
+    position: fixed; 
+    bottom: 0;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
     height: 4em;
 }
 
-
+body{
+    background-color: black;
+    padding-bottom:3em ;
+}
 footer p {
-display: inline;
- }
+    display: inline;
+}
 footer ul{
     float: right; 
+    /* width: 26em; */
     margin-right: 1em;
 }
 footer li{

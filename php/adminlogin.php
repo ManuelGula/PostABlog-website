@@ -2,10 +2,10 @@
 
 session_start();
  
-// Check if the user is already logged in, if yes then redirect him to welcome page
+// Check if a user is already logged in, if yes then log them out
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: blogsfeed.php");
-    exit;
+    $_SESSION = array();
+    session_destroy();
 }
 if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] === true){
     header("location: blogsfeed.php");
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT userid, username, pass FROM users WHERE username = :username";
+        $sql = "SELECT adminid, username, password FROM admin WHERE username = :username";
         
         if($stmt = $link->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -57,17 +57,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
-                        $id = $row["userid"];
+                        $id = $row["adminid"];
                         $username = $row["username"];
-                        $hashed_password = $row["pass"];
-                        if(password_verify($password, $hashed_password)){
+                        $adminpassword = $row["password"];
+                        if($adminpassword===$password){
                             // Password is correct, so start a new session
                             session_start();
 
                             // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["isadmin"] = true;
+                            $_SESSION["adminid"] = $id;
+                            $_SESSION["admin"] = $username;                            
                             
                             // Redirect user to welcome page
                             header("location: blogsfeed.php");
@@ -98,41 +98,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Sign In</title>
+        <title>Admin Sign In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/sign-in.css">
         <link rel="stylesheet" href="../css/highlight.css">
-        <script type="text/javascript" src="../js/signin.js"></script>
+        <script type="text/javascript" src="../js/admin.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon_io/android-chrome-512x512.png">
-        
     </head>
-    <?php
-        include_once "navbar.php";
-    ?>
+    <?php  require_once "navbar.php" ?>
     <body>
-        <h1>Sign In</h1>
-        <?php
-                echo $acct_err;
-        ?>
+        <h1>Admin Sign In</h1>
         <div>
-            <form id="signin" name="signin" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                <fieldset >
+            <form id="adminlogin" name="adminlogin" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>"  >
+                <fieldset  >
                         <p>
                             <label>Username:</label>
                             <br/>
-                            <input id="username"  type="text" name="username" placeholder="Enter your username">
+                            <input id="username" type="text" name="username" placeholder="Enter your username">
                         </p>
                         <p>
                             <label>Password:</label>
                             <br/>
-                            <input id="password"  type="password" name="password" placeholder="Enter your password">
-                        </p>
-                        <p>
-                            <a href="forgotpass.php">Forgot password</a>
+                            <input id="password" type="password" name="password" placeholder="Enter your password">
                         </p>
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
@@ -141,5 +132,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </form>
         </div>
     </body>
-    <?php include_once "footer.php"  ?>
+    <?php  require_once "footer.php" ?>
 </html>

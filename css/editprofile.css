@@ -1,18 +1,7 @@
 .navbar  {
     background-color: #00a287 ;
-    display: inline;
 }
-.navbar-header{
-    display: inline;
-    font-weight: bold; 
-}
-nav div li{
-    display: inline;
-}
-nav div input{
-    width:30em ; 
-    text-align: center;
-}
+
 a:link {
     font-weight: bold;
     color: black;
@@ -28,25 +17,44 @@ a:active{
     color: bisque;
     text-decoration: none;
 }
-fieldset{
+h1{
     text-align: center;
-    width: 80%;
+}
+form[name="signup"]{
+    margin-left: 30%;
+    margin-right: 20%;
     
+    
+}
+form[name="editprofile"]{
+    margin-left: 30%;
+    margin-right: 20%;
+    
+}
+fieldset{
+    width: 80%;
+    height: 50px;
 }
 fieldset p input{
     width:30em ;
     text-align: center;
 }
-h1{
-    text-align: center;
+fieldset p textarea{
+    width: 30em;
 }
 footer{
-    position: fixed; 
-    bottom: 0;
+    position: absolute; 
+    top: 145%;
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
     height: 4em;
+    
+}
+form[name="editprofile"] img{
+    width: 20em;
+    height: 30em;
+
 }
 
 footer p {
@@ -59,12 +67,6 @@ footer ul{
 footer li{
     display: inline;
 }
-form[name="signin"]{
-    margin-left: 15%;
-}
-form[name="adminlogin"]{
-    margin-left: 17%;
-}
-form[name="forgotpass"]{
-    margin-left: 17%;
+body{
+    padding-bottom: 2em;
 }

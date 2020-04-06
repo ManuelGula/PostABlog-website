@@ -26,11 +26,7 @@ form[name="signup"]{
     
     
 }
-form[name="editprofile"]{
-    margin-left: 30%;
-    margin-right: 20%;
-    
-}
+
 fieldset{
     width: 80%;
     height: 50px;
@@ -48,11 +44,10 @@ footer{
     width:100% ;
     background-color: #00a287; 
     margin-bottom: 0;
-    height: 4em;
+    height: 3em;
+    
 }
-footer.navbar-header {
-    display: inline;
-}
+
 
 footer p {
 display: inline;
@@ -63,4 +58,7 @@ footer ul{
 }
 footer li{
     display: inline;
+}
+body{
+    padding-bottom: 2em;
 }
