@@ -52,7 +52,7 @@
             $limit=$stmt->rowCount();
         }
         if($srchcat=="title"){
-            $sql="SELECT users.userid,firstname,lastname,email,title from users,blog where title='$search'";
+            $sql="SELECT blog.userid,firstname,lastname,email,title from users,blog where blog.userid=users.userid and title='$search'";
             $q=$link->query($sql);
             $q->setFetchMode(PDO::FETCH_ASSOC);
 
