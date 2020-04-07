@@ -60,6 +60,10 @@ window.onload=function(){
         if(pass!==repass){
             alert("passwords must match")
             e.preventDefault();
+        }else
+        if(bio.length>500){
+            alert("Bio too long");
+            e.preventDefault();
         }
     }
 }

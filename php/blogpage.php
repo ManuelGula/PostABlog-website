@@ -9,7 +9,7 @@
         $q=$link->query($sql);
         $q->setFetchMode(PDO::FETCH_ASSOC);
 
-        $commentsql="SELECT com_id,comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' order by datecreated DESC ";
+        $commentsql="SELECT com_id,comment.userid,com_content,comment.blogid,firstname,lastname,datecreated from comment,users,blog  where comment.blogid=blog.blogid and comment.userid=users.userid and comment.blogid='$blogid' order by datecreated ASC ";
         $com=$link->query($commentsql);
         $com->setFetchMode(PDO::FETCH_ASSOC);
 
