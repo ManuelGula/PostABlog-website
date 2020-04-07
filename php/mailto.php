@@ -7,6 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 $to=$_POST["useremail"];
 $mail_from='From:cookablog360@gmail.com';
+//password="COSC360project"
 if(empty($_POST["useremail"])){
     $to ="";
     $to_err="enter an email";
