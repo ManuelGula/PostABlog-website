@@ -10,7 +10,7 @@ if((isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) ||(isset($_S
 // Define variables and initialize with empty values
 $firstname= $lastname= $username= $email = $password = $confirm_password= $bio= $image =  "";
 $firstname_err= $lastname_err= $username_err =$email_err = $password_err = $confirm_password_err =$bio_err= $image_err = "";
-$upload_err="not uploaded";
+$upload_err="";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $upload_err="";
             } 
             else{
-                // echo $upload_err;
+                echo $upload_err="not uploaded";
             }
         } 
 
