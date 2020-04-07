@@ -16,9 +16,9 @@
         $search=$_POST['searchinput1'];
         $srchcat=$_POST['typeofsrch'];
         
-        if($srchcat=="firstname" && isset($search)){
+        if($srchcat=="name" && isset($search)){
             // echo "works";
-            $sql="SELECT userid,firstname,lastname,email from users where firstname='$search'";
+            $sql="SELECT userid,firstname,lastname,email from users where firstname='$search' or lastname='$search'";
             // echo "works";
             $q=$link->query($sql);
             // echo "works";
@@ -31,16 +31,16 @@
             $count=$stmt->rowCount()==0;
             $limit=$stmt->rowCount();
         }
-        if($srchcat=="lastname"){
-            $sql="SELECT userid,firstname,lastname,email from users where lastname='$search'";
-            $q=$link->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
+        // if($srchcat=="lastname"){
+        //     $sql="SELECT userid,firstname,lastname,email from users where lastname='$search'";
+        //     $q=$link->query($sql);
+        //     $q->setFetchMode(PDO::FETCH_ASSOC);
 
-            $stmt=$link->prepare($sql);
-            $stmt->execute();
-            $count=$stmt->rowCount()==0;
-            $limit=$stmt->rowCount();
-        }
+        //     $stmt=$link->prepare($sql);
+        //     $stmt->execute();
+        //     $count=$stmt->rowCount()==0;
+        //     $limit=$stmt->rowCount();
+        // }
         if($srchcat=="email"){
             $sql="SELECT userid,firstname,lastname,email from users where email='$search'";
             $q=$link->query($sql);
@@ -93,8 +93,8 @@
                 </div>
                 <select name="typeofsrch" class="custom-select" id="inputGroupSelect01">
                   <option selected>Choose...</option>
-                  <option value="firstname">Firstname</option>
-                  <option value="lastname">Lastname</option>
+                  <option value="name">Name</option>
+                  <!-- <option value="lastname">Lastname</option> -->
                   <option value="email">Email</option>
                   <option value="title">Title</option>
                 </select>
