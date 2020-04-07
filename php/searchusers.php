@@ -124,7 +124,7 @@
             $r=$q->fetch();
             // echo '<p>'.$r['userid'].'</p>';
         echo "<div style='width:40%;' class='container p-3 my-3 border' >";
-            echo "<a id='bloglink' href='profile.php?id={$r['userid']}>";
+            echo "<a id='bloglink' href='profile.php?id={$r['userid']}'>";
                 echo "<div class='mysavedblogs'>";
                    echo "<p style='text-align: center;'>
                         Userid: ".$r['userid']."
