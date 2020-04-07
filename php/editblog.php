@@ -10,7 +10,7 @@
         $row=$chek->fetch();
         // if($chek->rowCount()==1){
             $id=$row['userid'];
-            echo $id;
+            // echo $id;
         // }
 
     }
