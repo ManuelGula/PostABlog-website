@@ -93,9 +93,12 @@
                     if(isset($_SESSION["loggedin"]) && ($userid===$_SESSION['id'])&& $_SESSION["loggedin"] === true){
                         if(!isset($_REQUEST['removebtn'.$r['blogid']])){
 
+                            echo "<form id='editfrm' name='editfrm' method='POST' action='editblog.php?blogid={$r['blogid']}'>";
+                            echo '<button id="action_btn" type="submit" name="'."editblog".$r['blogid'].'"> Edit </button>';
+                            echo "</form>";
                             echo '<form id="rmvefrm" name="rmvefrm" method="POST" action="">';
-                                echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'"> Delete </button>';
-                                echo "</form>";
+                            echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'"> Delete </button>';
+                            echo "</form>";
                             }
                         else{
                             echo '<button id="remove_btn" type="submit" name="'."removebtn".$r['blogid'].'" disabled> Deleted </button>';

@@ -129,9 +129,9 @@
                 header("Refresh:1");
             }
             else{
-                echo "<form id='editfrm' name='editfrm' method='POST' action='editblog.php?blogid={$r['blogid']}'>";
-                echo '<button id="action_btn" type="submit" name="'."editblog".$r['blogid'].'"> Edit </button>';
-                echo "</form>";
+                // echo "<form id='editfrm' name='editfrm' method='POST' action='editblog.php?blogid={$r['blogid']}'>";
+                // echo '<button id="action_btn" type="submit" name="'."editblog".$r['blogid'].'"> Edit </button>';
+                // echo "</form>";
                 echo '<form id="deletefrm" name="deletefrm" method="POST" action="">';
                 echo '<button id="delete_btn" type="submit" name="'."deleteblog".$r['blogid'].'"> Delete </button>';
                 echo "</form>";

@@ -1,11 +1,26 @@
 <?php 
     require_once "config.php";
     session_start();
+    $id="";
+    if(isset($_SESSION['loggedin'])){
+        $userid=$_SESSION['id'];
+        $usercheck="SELECT blog.userid from users,blog where blog.userid=users.userid and users.userid=$userid";
+        $chek=$link->query($usercheck);
+        $chek->setFetchMode(PDO::FETCH_ASSOC);
+        $row=$chek->fetch();
+        // if($chek->rowCount()==1){
+            $id=$row['userid'];
+            echo $id;
+        // }
 
-    if(!isset($_SESSION["isadmin"]) && !$_SESSION["isadmin"] === true){
-        header("location: signin.php");
-        exit;
     }
+            if($_SESSION["id"] !==$id){
+                    // $userid=$_SESSION['id'];
+                    header("location: signin.php");
+                exit;
+                    
+                }
+
     if(!isset($_GET['blogid'])){
         die("no blog info fot that id");
     }else{
