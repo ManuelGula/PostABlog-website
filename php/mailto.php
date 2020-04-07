@@ -1,8 +1,14 @@
 <?php
 include_once "config.php";
-
+$to=$_POST["useremail"];
+$to_err="";
+$email_err="";
+$password="";
 $mail_from='From:cookablog360@gmail.com';
-$to =$_REQUEST["useremail"];
+if(empty($_POST["useremail"])){
+    $to ="";
+    $to_err="enter an email";
+}
 $subject ="Recovery of your password";
 
 $sql="SELECT pass,email from users where email='$to'";
@@ -10,20 +16,26 @@ $stmt=$link->query($sql);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 $r=$stmt->fetch();
-$message="Here is your password:".$r['pass'];
-
-
-if(isset($to) && $to===$r['email']){
-    $send_email=mail($to,$subject,$message,$mail_from);
-    // Check, if message sent to your email
-    if($send_email){
-        echo "Your Message has been sent";
-        }
-    else {
-        echo 'ERROR';
-        }
+if($stmt->rowCount()==1){
+    $password=$r['pass'];
+}else{
+    $email_err='no user with that email';
 }
-else{
-    echo 'no user with that email';
+$message="Here is your password:".$password;
+// $_SERVER["REQUEST_METHOD"] == "POST"
+if(!empty($_POST["useremail"])){
+    if(empty($email_err) && $to==$r['email']){
+        $send_email=mail($to,$subject,$message,$mail_from);
+        // Check, if message sent to your email
+        if($send_email){
+            $email_err= "Your password has been sent";
+            }
+        else {
+            $email_err= 'ERROR sending email';
+            }
+    }
+}else{
+
+    $email_err=$to_err;
 }
 ?>

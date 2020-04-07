@@ -51,9 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
-                if($stmt->rowCount() == 0){
-                    $acct_err="<p style='text-align:center;color:Red;font-weight:bold'>Invalid login credentials<p>";
-                }
+                // if($stmt->rowCount() == 0){
+                //     $acct_err="<p style='text-align:center;color:Red;font-weight:bold'>Check credentials..That account doesn't exist<p>";
+                // }
                 // Check if username exists, if yes then verify password
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
@@ -116,16 +116,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
         <h1>Sign In</h1>
         <?php
-                echo $acct_err;
+                // echo $acct_err;
         ?>
         <div>
             <form id="signin" name="signin" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <fieldset >
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$username_err."</p>"; ?>
                         <p>
                             <label>Username:</label>
                             <br/>
                             <input id="username"  type="text" name="username" placeholder="Enter your username">
                         </p>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$password_err."</p>" ?>
                         <p>
                             <label>Password:</label>
                             <br/>

@@ -8,6 +8,7 @@
         header("location: blogsfeed.php");
         exit;
     }
+    include_once "mailto.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +31,9 @@
     <body>
         <h1>Forgot Password</h1>
         <div>
-            <form name="forgotpass" method="POST" action="mailto.php">
+            <form name="forgotpass" method="POST" action="">
                 <fieldset >
+                <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$email_err."</p>"; ?>
                         <p>
                             <label>Email:</label>
                             <br/>
