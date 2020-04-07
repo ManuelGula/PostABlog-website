@@ -1,9 +1,11 @@
 <?php
 include_once "config.php";
-$to=$_POST["useremail"];
 $to_err="";
 $email_err="";
 $password="";
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+$to=$_POST["useremail"];
 $mail_from='From:cookablog360@gmail.com';
 if(empty($_POST["useremail"])){
     $to ="";
@@ -22,7 +24,6 @@ if($stmt->rowCount()==1){
     $email_err='no user with that email';
 }
 $message="Here is your password:".$password;
-// $_SERVER["REQUEST_METHOD"] == "POST"
 if(!empty($_POST["useremail"])){
     if(empty($email_err) && $to==$r['email']){
         $send_email=mail($to,$subject,$message,$mail_from);
@@ -37,5 +38,5 @@ if(!empty($_POST["useremail"])){
 }else{
 
     $email_err=$to_err;
-}
+}}
 ?>
