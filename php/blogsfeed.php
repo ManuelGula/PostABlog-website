@@ -133,7 +133,7 @@
                 // echo '<button id="action_btn" type="submit" name="'."editblog".$r['blogid'].'"> Edit </button>';
                 // echo "</form>";
                 echo '<form id="deletefrm" name="deletefrm" method="POST" action="">';
-                echo '<button id="delete_btn" type="submit" name="'."deleteblog".$r['blogid'].'"> Delete </button>';
+                echo '<button id="action_btn" type="submit" name="'."deleteblog".$r['blogid'].'"> Delete </button>';
                 echo "</form>";
             }
         }
