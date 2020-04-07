@@ -65,5 +65,9 @@ window.onload=function(){
             alert("Bio too long");
             e.preventDefault();
         }
+        else if(pass.length()<6){
+            alert("password must be at least 6 characters long");
+            e.preventDefault();
+        }
     }
 }

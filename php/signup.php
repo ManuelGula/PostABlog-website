@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username = trim($_POST["username"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                // echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $email = trim($_POST["email"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                // echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $upload_err="";
             } 
             else{
-                echo $upload_err;
+                // echo $upload_err;
             }
         } 
 
@@ -167,7 +167,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 header("location: signin.php");
             } else{
-                echo "Something went wrong. Please try again later.";
+                // echo "Something went wrong. Please try again later.";
             }
 
             // Close statement
@@ -175,7 +175,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     else{
-        echo "something went wrong";
+        // echo "something went wrong";
     }
     
     // Close connection
@@ -204,39 +204,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <form name="signup" id="signup" method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" >
                 <fieldset >
                         <div>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$firstname_err."</p>"; ?>
                             <p>
                                 <label>Firstname:</label>
                                 <br/>
                                 <input id="firstname" type="text" name="firstname" placeholder="Enter your firstname">
                             </p>
+                            <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$lastname_err."</p>"; ?>
                             <p>
                                 <label>Lastname:</label>
                                 <br/>
                                 <input id="lastname" type="text" name="lastname" placeholder="Enter your lastname">
                             </p>
                         </div>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$username_err."</p>"; ?>
                         <p>
                             <label>Username:</label>
                             <br/>
                             <input id="username" type="text" name="username" placeholder="Enter your username">          
                         </p>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$email_err."</p>"; ?>
                         <p>
                             <label>Email:</label>
                             <br/>
                             <input id="email"  type="email" name="email" placeholder="Enter your email">
                         </p>
                         <div>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$password_err."</p>"; ?>
                             <p>
                                 <label>Password:</label>
                                 <br/>
                                 <input id="password" type="password" name="password" placeholder="Enter your password">
                             </p>
+                            <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$confirm_password_err."</p>"; ?>
                             <p>
                                 <label>Retype Password:</label>
                                 <br/>
                                 <input id="retype-password" type="password" name="re-password" placeholder="Retype your password">
                             </p>
                         </div>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$bio_err."</p>"; ?>
                         <div>
                             <p> 
                                 <label>Bio:</label>
@@ -244,6 +251,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <textarea id="bio" name="bio" rows="3" placeholder="Tell us something about yourself"></textarea>
                             </p>
                         </div>
+                        <?php echo "<p style='text-align:center;color:Red;font-weight:bold'>".$upload_err."</p>"; ?>
                         <p>
                             <label>Add profile image</label>
                             <br/>
