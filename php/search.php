@@ -4,11 +4,17 @@
 
     if(isset($_POST['searchinput'])){
         $search=$_POST['searchinput'];
-        $sql= "SELECT blog.userid,blogid,title,description,created_date,firstname, lastname from blog,users where blog.userid=users.userid and (title like '$search') and (title like '%$search%') and (title like '%$search') and (title like '$search%') ORDER BY created_date DESC ";
-        $q=$link->query($sql);
-        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $sql= "SELECT blog.userid,blogid,title,description,created_date,firstname,lastname from blog,users where blog.userid=users.userid and (title like :title) ORDER BY created_date DESC ";
+        if($q=$link->prepare($sql)){
+            $title="%".$search."%";
+            $q->bindParam(':title',$title);
+            $q->execute();
+        }
+        // $q=$link->query($sql);
+        // $q->setFetchMode(PDO::FETCH_ASSOC);
         
         $stmt = $link->prepare($sql);
+        $stmt->bindParam(':title',$title);
         $stmt->execute();
     }
     else{
