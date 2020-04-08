@@ -62,7 +62,7 @@
                 
                 echo "<h2>No search results for:".$_POST['searchinput']."</h2>";
             }
-                if(!empty($_POST['searchinput']))
+                if(!empty($_POST['searchinput'])&&$count<1)
             {
                 echo "<h2>Search results for:".$_POST['searchinput']."</h2>";
             }   
