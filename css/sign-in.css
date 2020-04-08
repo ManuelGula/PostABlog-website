@@ -10,7 +10,7 @@ nav div li{
     display: inline;
 }
 nav div input{
-    width:30em ; 
+    /* width:30em ;  */
     text-align: center;
 }
 a:link {

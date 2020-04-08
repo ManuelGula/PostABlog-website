@@ -18,14 +18,25 @@
         
         if($srchcat=="name" && isset($search)){
             // echo "works";
-            $sql="SELECT userid,firstname,lastname,email from users where firstname='$search' or lastname='$search'";
+            $sql="SELECT userid,firstname,lastname,email from users where firstname like :fname or lastname like :lname";
             // echo "works";
-            $q=$link->query($sql);
-            // echo "works";
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-            // echo "works";
+            if($q=$link->prepare($sql)){
+                $name="%".$search."%";
+                $q->bindParam(':fname',$name);
+                $q->bindParam(':lname',$name);
+                $q->execute();
+            }
+            // $q=$link->query($sql);
+            // // echo "works";
+            // $q->setFetchMode(PDO::FETCH_ASSOC);
+                // echo "works";
             $stmt=$link->prepare($sql);
-            // echo "works";
+                // echo "works";
+                $names="%".$search."%";
+                $stmt->bindParam(':fname',$names);
+                $stmt->bindParam(':lname',$names);
+                // $stmt->execute();
+
             $stmt->execute();
             // echo "works";
             $count=$stmt->rowCount()==0;
@@ -42,21 +53,31 @@
         //     $limit=$stmt->rowCount();
         // }
         if($srchcat=="email"){
-            $sql="SELECT userid,firstname,lastname,email from users where email='$search'";
-            $q=$link->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-
+            $sql="SELECT userid,firstname,lastname,email from users where email like :email";
+            if($q=$link->prepare($sql)){
+                $email="%".$search."%";
+                $q->bindParam(':email',$email);
+                $q->execute();
+            }
             $stmt=$link->prepare($sql);
+            $email="%".$search."%";
+                $stmt->bindParam(':email',$email);
+                
             $stmt->execute();
             $count=$stmt->rowCount()==0;
             $limit=$stmt->rowCount();
         }
         if($srchcat=="title"){
-            $sql="SELECT blog.userid,firstname,lastname,email,title from users,blog where blog.userid=users.userid and title='$search'";
-            $q=$link->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
+            $sql="SELECT blog.userid,firstname,lastname,email,title from users,blog where blog.userid=users.userid and title like :title";
+            if($q=$link->prepare($sql)){
+                $title="%".$search."%";
+                $q->bindParam(':title',$title);
+                $q->execute();
+            }
 
             $stmt=$link->prepare($sql);
+            $title="%".$search."%";
+                $stmt->bindParam(':title',$title);
             $stmt->execute();
             $count=$stmt->rowCount()==0;
             $limit=$stmt->rowCount();

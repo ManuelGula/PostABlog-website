@@ -2,20 +2,28 @@
     require_once "config.php";
     session_start();
 
-    if(isset($_POST['searchinput'])){
-        $search=$_POST['searchinput'];
-        $sql= "SELECT blog.userid,blogid,title,description,created_date,firstname,lastname from blog,users where blog.userid=users.userid and (title like :title) ORDER BY created_date DESC ";
+    $search=$_POST['searchinput'];
+    if(isset($search)){
+        $sql= "SELECT blog.userid,blogid,title,description,created_date,firstname,lastname from users,blog where blog.userid=users.userid and title like :title";
         if($q=$link->prepare($sql)){
             $title="%".$search."%";
             $q->bindParam(':title',$title);
             $q->execute();
         }
+        // $sql="SELECT blog.userid,firstname,lastname,email,title from users,blog where blog.userid=users.userid and title like :title";
+        //     if($q=$link->prepare($sql)){
+        //         $title="%".$search."%";
+        //         $q->bindParam(':title',$title);
+        //         $q->execute();
+        //     }
         // $q=$link->query($sql);
         // $q->setFetchMode(PDO::FETCH_ASSOC);
         
         $stmt = $link->prepare($sql);
         $stmt->bindParam(':title',$title);
         $stmt->execute();
+        $count=$stmt->rowCount()==0;
+        $limit=$stmt->rowCount();
     }
     else{
         echo "no search res";
@@ -43,6 +51,10 @@
         ?>
         <h1>Search Blogs</h1>
         <?php 
+            if($count){
+                
+                echo "<h2>No search results for:".$_POST['searchinput1']."</h2>";
+            }
                 if(!empty($_POST['searchinput']))
             {
                 echo "<h2>Search results for:".$_POST['searchinput']."</h2>";
@@ -51,9 +63,10 @@
         <?php 
         
         //check limit of search
-        for($i=0;$i<$stmt->rowCount();$i++){
+        for($i=0;$i<$limit;$i++){
             $r=$q->fetch();
-            if($_POST['searchinput']==$r['title']){
+        if(!empty($search)){
+            if(isset($r['title'])){
             $savedblogid=$r["blogid"];
             $savecheck= "SELECT blog_id from savedblogs where blog_id='$savedblogid'";
             $svck=$link->query($savecheck);
@@ -124,7 +137,7 @@
         {
             echo "<h1>No search results for:".$_POST['searchinput']."</h1>";
         }
-        
+    }
     // endwhile;
                         ?>
         <?php ?>
