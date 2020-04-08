@@ -1,9 +1,16 @@
 <?php
     require_once "config.php";
     session_start();
-
-    $search=$_POST['searchinput'];
-    if(isset($search)){
+    $count="";
+    $limit="";
+    // echo "ah";
+    if($_REQUEST=="POST")
+        $search="";
+        if(!empty($_POST['searchinput'])){
+            $search=$_POST['searchinput'];
+        }
+        if( isset($search)){
+            // echo "ah";
         $sql= "SELECT blog.userid,blogid,title,description,created_date,firstname,lastname from users,blog where blog.userid=users.userid and title like :title";
         if($q=$link->prepare($sql)){
             $title="%".$search."%";
@@ -53,7 +60,7 @@
         <?php 
             if($count){
                 
-                echo "<h2>No search results for:".$_POST['searchinput1']."</h2>";
+                echo "<h2>No search results for:".$_POST['searchinput']."</h2>";
             }
                 if(!empty($_POST['searchinput']))
             {
@@ -104,19 +111,19 @@
             
             echo '<div class="blog_container" >';
             
-                if(isset($_SESSION["loggedin"]) ){
-                    if(isset($_REQUEST['saveblog'.$r['blogid']])){
-                        echo '<button id="save_btn" name="'."saveblog".$r['blogid'].'"disabled> Saved </button>';
-                    }
-                    else{
-                        echo '<form id="savefrm" name="savefrm" method="POST" action="">';
-                            echo '<button id="save_btn" type="submit" name="'."saveblog".$r['blogid'].'"> Save </button>';
-                            echo "</form>";
-                        }
-                    }
-                    if(isset($blogcheck['blog_id']) && isset($_REQUEST['saveblog'.$r['blogid']])){
-                        echo "<p>".$saved_err."</p>";
-                    }
+                // if(isset($_SESSION["loggedin"]) ){
+                //     if(isset($_REQUEST['saveblog'.$r['blogid']])){
+                //         echo '<button id="save_btn" name="'."saveblog".$r['blogid'].'"disabled> Saved </button>';
+                //     }
+                //     else{
+                //         echo '<form id="savefrm" name="savefrm" method="POST" action="">';
+                //             echo '<button id="save_btn" type="submit" name="'."saveblog".$r['blogid'].'"> Save </button>';
+                //             echo "</form>";
+                //         }
+                //     }
+                //     if(isset($blogcheck['blog_id']) && isset($_REQUEST['saveblog'.$r['blogid']])){
+                //         echo "<p>".$saved_err."</p>";
+                //     }
                 echo "<a id='bloglink' href='blogpage.php?blogid={$r['blogid']}'>";
                 echo '<div class="mysavedblogs">';
                         echo '<div class="blog">';
